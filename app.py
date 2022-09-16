@@ -11,9 +11,12 @@ def forsida():
 @app.route("/login")
 def login():
     return render_template("login.html")
-@app.route("/leit")
+@app.route("/search")
 def search():
     return render_template("search.html")
+@app.route("/back")
+def search():
+    return redirect("/", code=302)
 
 if __name__ == "__main__":
     app.run(debug=True)

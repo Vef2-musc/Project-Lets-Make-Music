@@ -15,11 +15,15 @@ def login():
 def search():
     return render_template("search.html")
 @app.route("/signup")
-def search():
+def signup():
     return render_template("signup.html")
 @app.route("/back")
 def back():
     return redirect("/")
+
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)

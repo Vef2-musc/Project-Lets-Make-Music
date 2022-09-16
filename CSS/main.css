@@ -1,3 +1,20 @@
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 .header {
-    container-type: inline-size;
+    align-items: center;
+    background-color: rgb(50,50,50);
+    display: flex;
+    flex-flow: row wrap;
+    gap: var(--gutter);
+    color: red;
+   
+};
+body {
+    background-color: #435165;
+    margin: 0;
 }

@@ -1,1 +1,4 @@
-myproject
+virtuale
+.gitignore
+_pycache_
+app.cpython-310.pyc

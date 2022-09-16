@@ -14,6 +14,9 @@ def login():
 @app.route("/search")
 def search():
     return render_template("search.html")
+@app.route("/signup")
+def search():
+    return render_template("signup.html")
 @app.route("/back")
 def back():
     return redirect("/")

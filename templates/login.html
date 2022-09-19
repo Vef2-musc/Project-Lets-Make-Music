@@ -1,6 +1,21 @@
-<!DOCTYPE html>
 <html>
+    <head>
+        <title>Login page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+    </head>
     <body>
-        <h4>Halló Login Síða</h4>
+        <div class="div">
+            <h2>Login</h2>
+            <br>
+            <form action="" method="post">
+                <input type="text" placeholder="user" name="username" value="{{request.form.user }}">
+                <input type="password" placeholder="pass" name="password" value="{{request.form.pass }}">
+                <input class="btn btn-default" type="submit" value="Login">
+            </form>
+            {% if error %}
+            <p class="error"><strong>Error:</strong>{{ error }}</p>
+            {% endif %}
+        </div>
     </body>
 </html>

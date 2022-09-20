@@ -7,6 +7,8 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 	</head>
 	<body class="loggedin">
+		{% extends 'base.html' %}
+        	{% block content %}
 		<nav class="navtop">
 			<div>
                 <p>Welcome back, {{ username }}!</p>
@@ -14,5 +16,6 @@
 				<a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
 			</div>
 		</nav>
+		{% endblock %}
 	</body>
 </html>

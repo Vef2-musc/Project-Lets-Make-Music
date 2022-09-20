@@ -109,6 +109,10 @@ body {
 }
 .navtop div a i {
     padding: 2px 8px 0 0;
+    color:darkred;
+}
+a{
+    color: red;
 }
 .navtop div a:hover {
     color: #eaebed;
@@ -147,6 +151,7 @@ body.loggedin {
 }
 .tenglar {
     display: grid;
+    margin: 3%;
     grid-template: 
     "mapouter contact about";
 }

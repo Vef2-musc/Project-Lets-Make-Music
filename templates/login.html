@@ -1,18 +1,27 @@
-<!DOCTYPE html>
 <html>
+    <head>
+        <title>Login page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+    </head>
     <body>
         {% extends 'base.html' %}
         {% block content %}
-        <h4>Halló Login Síða</h4>
-        <form action='/' method='POST'>
-            Username <input type="text" name="usr"><br>
-            Email: <input type='text' name="email"><br>
-            Password: <input type='password' name='password'>
-            <input type="submit" href="{{ url_for('back') }}">
-        </form>
-        <p><a href="{{ url_for('forsida') }}">forsida</a></p>
-        <p><a href="{{ url_for('leit') }}">leit</a></p>
-        <p><a href="{{ url_for('back') }}">Home</a></p>
+        <div class="div">
+            <h2>Login</h2>
+            <br>
+            <form action="" method="post">
+                <input type="text" placeholder="email" name="email" value="{{request.form.user }}">
+                <input type="password" placeholder="pass" name="password" value="{{request.form.pass }}">
+                <input class="btn btn-default" type="submit" value="Login">
+            </form>
+            {% if error %}
+            <p class="error"><strong>Error:</strong>{{ error }}</p>
+            {% endif %}
+            <p><a href="{{ url_for('forsida') }}">forsida</a></p>
+            <p><a href="{{ url_for('leit') }}">leit</a></p>
+            <p><a href="{{ url_for('back') }}">Homepage</a></p>
+        </div>
         {% endblock %}
     </body>
 </html>

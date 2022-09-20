@@ -25,15 +25,11 @@ def login():
             session['user'] = email
         except:
             return 'Failed to login :('
-    #þarf sign in siðu og lata gusta vita með það
-    #þarf lika logout til að henda code þar :)
-    #log out : session.pop('user')
-    #return redirect ('/')
     return render_template("login.html")
 @app.route("/search")
 def leit():
     return render_template("search.html")
-@app.route("/signup")
+@app.route("/signup", methods=['POST','GET'])
 def signup():
     return render_template("signup.html")
 @app.route("/back")

@@ -4,6 +4,27 @@
         {% extends 'base.html' %}
         {% block content %}
         <h4>Halló Sign Up Síða</h4>
+		<div class="signup">
+			<h1>Register</h1>
+			<div class="links">
+				<a href="{{ url_for('login') }}">Login</a>
+				<a href="{{ url_for('leit') }}" class="active">Register</a>
+			</div>
+			<form action="{{ url_for('signup') }}" method="post" autocomplete="off">
+				<label for="username">
+					<i class="fas fa-user"></i>
+				</label>
+				<input type="text" name="username" placeholder="Username" id="user" required>
+				<label for="password">
+					<i class="fas fa-lock"></i>
+				</label>
+				<input type="password" name="password" placeholder="Password" id="pass" required>
+					<i class="fas fa-envelope"></i>
+				</label>
+				<input type="submit" value="signup">
+			</form>
+		</div>
+
         {% endblock %}
     </body>
 </html>

@@ -2,7 +2,8 @@
 from distutils.command.config import config
 import email
 import os
-from flask import Flask, render_template,redirect
+from urllib import request
+from flask import Flask,session, render_template,redirect,request
 import pyrebase
 
 app=Flask(__name__,template_folder='templates')
@@ -14,6 +15,20 @@ def forsida():
     return render_template("index.html")
 @app.route("/login", methods=['POST','GET'])
 def login():
+    if('user' in session):
+        return 'Hi, {}'.format(session['user'])
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
+        try:
+            user = auth.create_user_with_email_and_password(email, password)
+            session['user'] = email
+        except:
+            return 'Failed to login :('
+    #þarf sign in siðu og lata gusta vita með það
+    #þarf lika logout til að henda code þar :)
+    #log out : session.pop('user')
+    #return redirect ('/')
     return render_template("login.html")
 @app.route("/search")
 def leit():

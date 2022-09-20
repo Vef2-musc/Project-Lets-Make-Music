@@ -4,9 +4,9 @@
         {% extends 'base.html' %}
         {% block content %}
         <h4>Halló Login Síða</h4>
-        <form action="/" method="POST">
-            Email: <input type="text" name="email"><br>
-            Password: <input type="password" name="password">
+        <form action='/' method='POST'>
+            Email: <input type='text' name="email"><br>
+            Password: <input type='password' name='password'>
             <input type="submit">
         </form>
         <p><a href="{{ url_for('forsida') }}">forsida</a></p>

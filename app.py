@@ -14,10 +14,10 @@ def forsida():
 def login():
     return render_template("login.html")
 @app.route("/search")
-def search():
+def leit():
     return render_template("search.html")
 @app.route("/signup")
-def search():
+def signup():
     return render_template("signup.html")
 @app.route("/back")
 def back():

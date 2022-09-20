@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html>
-    <body>
-        <h4>Halló Frontpage</h4>
-        <p><a href="{{ url_for('login') }}">Login</a></p>
+    <head>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <header class="header">
+        <span font-size="3" font-weight="bold" class="nafnvefsidu">Let's Make Music</span>
+    </header>
+    <body class="body1">
+        <h4 class="header4-1">Halló Frontpage</h4>
+
+        <button type="button"> <p><a href="{{ url_for('login') }}">login</a></p> <button type="button"><p><a href="{{ url_for('signup') }}">login</a></p></button>
+        <p><a href="{{ url_for('forsida') }}">forsida</a></p>
         <p><a href="{{ url_for('search') }}">leit</a></p>
-        <p><a href="{{ url_for('back') }}">Home</a></p>
     </body>
 </html>

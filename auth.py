@@ -22,5 +22,5 @@ password = '123456'
 #user = auth.sign_in_with_email_and_password(email,password)
 #auth.send_email_verification(user['idToken'])
 
-auth.send_password_reset_email(email)
+#auth.send_password_reset_email(email)
 

@@ -151,6 +151,7 @@ body.loggedin {
 }
 .tenglar {
     display: grid;
+    margin: 3%;
     grid-template: 
     "mapouter contact about";
 }

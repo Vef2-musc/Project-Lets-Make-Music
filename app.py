@@ -34,8 +34,8 @@ def forsida():
 @app.route("/login")
 def login():
     return render_template("login.html")
-@app.route("/search")
-def search():
+@app.route("/leit")
+def leit():
     return render_template("search.html")
 @app.route("/signup")
 def search():

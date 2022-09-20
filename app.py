@@ -3,8 +3,8 @@ from distutils.command.config import config
 import email
 import os
 from urllib import request
-from flask import Flask,session, render_template,redirect,request
-import pyrebase
+from flask import Flask, render_template, request, redirect, url_for, session
+import re
 
 app=Flask(__name__,template_folder='templates')
 @app.route('/')

@@ -109,6 +109,10 @@ body {
 }
 .navtop div a i {
     padding: 2px 8px 0 0;
+    color:darkred;
+}
+a{
+    color: red;
 }
 .navtop div a:hover {
     color: #eaebed;

@@ -5,6 +5,7 @@
         {% block content %}
         <h4>Halló Login Síða</h4>
         <form action='/' method='POST'>
+            Username <input type="text" name="usr"><br>
             Email: <input type='text' name="email"><br>
             Password: <input type='password' name='password'>
             <input type="submit" href="{{ url_for('back') }}">

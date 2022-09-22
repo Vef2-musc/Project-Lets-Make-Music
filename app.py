@@ -26,7 +26,7 @@ auth = firebase.auth()
 
 app.secret_key = 'admin-69420'
 
-#------------
+#-------------
 
 @app.route('/')
 def hello_world():

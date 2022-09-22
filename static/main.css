@@ -155,3 +155,16 @@ body.loggedin {
     grid-template: 
     "mapouter contact about";
 }
+.outbox{
+    background-color: #4a536e;
+}
+.indxlinks{
+    display: flex;
+    justify-content: space-between;
+}
+.header{
+    display: grid;
+    margin: 3%;
+    grid-template:
+    "nafnvefsidu indxlinks";
+}

@@ -7,7 +7,9 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
         <title>Document</title>
     </head>
-    <body>        
+    <body>
+        {% include 'header.html' %}
+
         {% block content %}
                 
         {% endblock %}

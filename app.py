@@ -1,3 +1,4 @@
+#Hæ
 #from crypt import methods
 from distutils.command.config import config
 import email
@@ -31,7 +32,7 @@ app.secret_key = 'admin-69420'
 @app.route('/')
 def hello_world():
     return render_template("hompage.html")
-@app.route("/forsida", methods=['GET','POST'])
+@app.route("/login", methods=['GET','POST'])
 def forsida():
     if('user' in session):
         print("virkar..")
@@ -47,7 +48,7 @@ def forsida():
         except:
             return 'Failed to login :('
     return render_template("index.html")
-@app.route("/login", methods=['GET','POST'])
+@app.route("/login2", methods=['GET','POST'])
 def login():
     
     return render_template("login.html")
@@ -60,6 +61,12 @@ def signup():
 @app.route("/back")
 def back():
     return redirect("/")
+@app.route('/signout')
+def signout():
+    session.pop('loggedin', None)
+    session.pop('user', None)
+    session.pop('nafn', None)
+    return redirect(url_for('login'))
 #----------
 
 #allt commentaða er eftir Guðjón og var bara að fikta svo ég gæti unnið betur í CSS

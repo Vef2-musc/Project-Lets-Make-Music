@@ -31,12 +31,11 @@ app.secret_key = 'admin-69420'
 @app.route('/')
 def hello_world():
     return render_template("hompage.html")
-@app.route("/forsida")
+@app.route("/forsida", methods=['GET','POST'])
 def forsida():
-    return render_template("index.html")
-@app.route("/login", methods=['GET','POST'])
-def login():
     if('user' in session):
+        print("virkar..")
+        #return render_template('homepage.html')
         return 'Hi, {}'.format(session['user'])
     if request.method == 'POST':
         email = request.form.get('email')
@@ -44,8 +43,13 @@ def login():
         try:
             user = auth.sign_in_with_email_and_password(email,password)
             session['user'] = email
+            return 'success...'
         except:
             return 'Failed to login :('
+    return render_template("index.html")
+@app.route("/login", methods=['GET','POST'])
+def login():
+    
     return render_template("login.html")
 @app.route("/search")
 def leit():

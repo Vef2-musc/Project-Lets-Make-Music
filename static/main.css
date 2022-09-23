@@ -170,8 +170,16 @@ body.loggedin {
 }
 .hmpbod{
     display: grid;
+    grid-template-columns: max-content;
+    grid-template-areas: 
+    "menu holder holder";
 }
 .menu{
     display: grid;
     justify-content: space-between;
+    background-color: #2f3947;
+    
+}
+.menuitem{
+    margin: 2%;
 }

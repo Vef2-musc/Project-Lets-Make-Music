@@ -30,7 +30,7 @@ app.secret_key = 'admin-69420'
 #-------------
 
 @app.route('/')
-def hello_world():
+def home():
     return render_template("hompage.html")
 @app.route("/login", methods=['GET','POST'])
 def forsida():
@@ -44,9 +44,11 @@ def forsida():
         try:
             user = auth.sign_in_with_email_and_password(email,password)
             session['user'] = email
-            return 'success...'
+            print("virkar")
+            return redirect("/")
+        
         except:
-            return 'Failed to login :('
+            return  redirect("/login")
     return render_template("index.html")
 @app.route("/login", methods=['GET','POST'])
 def login():

@@ -46,16 +46,12 @@ def forsida():
             session['user'] = email
             print("virkar")
             return redirect("/")
-        
         except:
             return  redirect("/login")
     return render_template("index.html")
 @app.route("/login", methods=['GET','POST'])
 def login():
     return render_template("login.html")
-@app.route('/logedin')
-def logedin():
-    return render_template("acthomepage.html")
 @app.route("/search")
 def leit():
     return render_template("search.html")
@@ -65,7 +61,7 @@ def signup():
 @app.route("/back")
 def back():
     return redirect("/")
-@app.route('/logout')
+@app.route('/signout')
 def signout():
     session.pop('loggedin', None)
     session.pop('user', None)

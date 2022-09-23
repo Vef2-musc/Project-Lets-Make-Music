@@ -11,10 +11,17 @@
         {% block content %}
         <section class="hmpbod">
             <section class="menu">
-                <a href="{{ url_for('forsida') }}">Messages</a>
-                <a href="{{ url_for('signup') }}">groups</a>
-                <a href="{{ url_for('leit') }}">leit</a>
+                <a href="{{ url_for('forsida') }}" class="menuitem">Messages</a>
+                <a href="{{ url_for('signup') }}" class="menuitem">groups</a>
+                <a href="{{ url_for('leit') }}" class="menuitem">leit</a>
             </section>
+            <table class="holder">
+                <tr>
+                    <th>Name</th>
+                    <th>Instrument</th>
+                    <th>age</th>
+                </tr>
+            </table>
         </section>
 		{% endblock %}
 	</body>

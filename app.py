@@ -59,7 +59,13 @@ def leit():
     return render_template("search.html")
 @app.route("/signup", methods=['POST','GET'])
 def signup():
-    return render_template("signup.html")
+    msg = ''
+    if request.method == 'POST' and 'user' in request.form and 'pass' in request.form:
+        username = request.form['user']
+        password = request.form['pass']
+    elif request.method == 'POST':
+        msg = 'Please fill out the form!'
+    return render_template('signup.html', msg=msg)
 @app.route("/back")
 def back():
     return redirect("/")

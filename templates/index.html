@@ -14,7 +14,10 @@
 				    <a href="{{ url_for('signup') }}">Register</a>
            </div>
         <form action="{{ url_for('login') }}" method="post">
-				  <label for="username">
+			<input type="text" placeholder="email" name="email" value="{{request.form.user }}">
+            <input type="password" placeholder="pass" name="password" value="{{request.form.pass }}">
+            <input class="btn btn-default" type="submit" value="Login">
+				  <!--<label for="username">
 					  <i class="fas fa-user"></i>
 				  </label>
 				  <input type="text" name="username" placeholder="Username" id="username" required>
@@ -23,8 +26,8 @@
 				  </label>
 				  <input type="password" name="password" placeholder="Password" id="password" required>
 				  <div class="msg">{{ msg }}</div>
-				  <input type="submit" value="Login">
-			  </form>
+				  <input type="submit" value="Login">-->
+		</form>
 		</div>
 		{% endblock %}
     </body>

@@ -31,10 +31,10 @@ app.secret_key = 'admin-69420'
 @app.route('/')
 def hello_world():
     return render_template("hompage.html")
-@app.route("/forsida", methods=['GET','POST'])
+@app.route("/login", methods=['GET','POST'])
 def forsida():
     if('user' in session):
-        print("virkar..")
+        #print("virkar..")
         #return render_template('homepage.html')
         return 'Hi, {}'.format(session['user'])
     if request.method == 'POST':
@@ -60,6 +60,12 @@ def signup():
 @app.route("/back")
 def back():
     return redirect("/")
+@app.route('/signout')
+def signout():
+    session.pop('loggedin', None)
+    session.pop('user', None)
+    session.pop('nafn', None)
+    return redirect(url_for('login'))
 #----------
 
 #allt commentaða er eftir Guðjón og var bara að fikta svo ég gæti unnið betur í CSS
@@ -109,7 +115,7 @@ def back():
 #FIREBASE
 
 
-
+#hjalp :D
 
 
 # goomba

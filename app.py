@@ -52,7 +52,7 @@ def forsida():
 def login():
     return render_template("login.html")
 @app.route('/loggedin')
-def logedin():
+def loggedin():
     return render_template("acthomepage.html")
 @app.route("/search")
 def leit():

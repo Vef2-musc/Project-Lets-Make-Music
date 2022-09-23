@@ -7,7 +7,7 @@ import pyrebase
 from urllib import request
 from flask import Flask, render_template, request, redirect, url_for, session
 import re
-import pyrebase
+
 
 app=Flask(__name__,template_folder='templates')
 

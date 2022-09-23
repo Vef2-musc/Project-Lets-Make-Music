@@ -44,20 +44,29 @@ def forsida():
         try:
             user = auth.sign_in_with_email_and_password(email,password)
             session['user'] = email
-            print("virkar")
-            return redirect("/")
+            return render_template("rett.html")
         except:
-            return  redirect("/login")
+            return render_template("rangt.html")
     return render_template("index.html")
 @app.route("/login", methods=['GET','POST'])
 def login():
     return render_template("login.html")
+@app.route('/loggedin')
+def loggedin():
+    return render_template("acthomepage.html")
+
 @app.route("/search")
 def leit():
     return render_template("search.html")
 @app.route("/signup", methods=['POST','GET'])
 def signup():
-    return render_template("signup.html")
+    msg = ''
+    if request.method == 'POST' and 'user' in request.form and 'pass' in request.form:
+        username = request.form['user']
+        password = request.form['pass']
+    elif request.method == 'POST':
+        msg = 'Please fill out the form!'
+    return render_template('signup.html', msg=msg)
 @app.route("/back")
 def back():
     return redirect("/")

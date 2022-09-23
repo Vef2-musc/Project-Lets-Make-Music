@@ -9,10 +9,12 @@
 	<body class="loggedin">
 		{% extends 'base.html' %}
         {% block content %}
-		<section class="menu">
-        <a href="{{ url_for('forsida') }}">Messages</a>
-        <a href="{{ url_for('signup') }}">groups</a>
-        <a href="{{ url_for('leit') }}">leit</a>
+        <section class="hmpbod">
+            <section class="menu">
+                <a href="{{ url_for('forsida') }}">Messages</a>
+                <a href="{{ url_for('signup') }}">groups</a>
+                <a href="{{ url_for('leit') }}">leit</a>
+            </section>
         </section>
 		{% endblock %}
 	</body>

@@ -30,7 +30,7 @@ app.secret_key = 'admin-69420'
 #-------------
 
 @app.route('/')
-def hello_world():
+def home():
     return render_template("hompage.html")
 @app.route("/login", methods=['GET','POST'])
 def forsida():
@@ -54,6 +54,7 @@ def login():
 @app.route('/loggedin')
 def loggedin():
     return render_template("acthomepage.html")
+
 @app.route("/search")
 def leit():
     return render_template("search.html")
@@ -69,7 +70,7 @@ def signup():
 @app.route("/back")
 def back():
     return redirect("/")
-@app.route('/logout')
+@app.route('/signout')
 def signout():
     session.pop('loggedin', None)
     session.pop('user', None)

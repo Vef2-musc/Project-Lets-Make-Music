@@ -44,9 +44,9 @@ def forsida():
         try:
             user = auth.sign_in_with_email_and_password(email,password)
             session['user'] = email
-            return 'success...'
+            return render_template("rett.html")
         except:
-            return 'Failed to login :('
+            return render_template("rangt.html")
     return render_template("index.html")
 @app.route("/login", methods=['GET','POST'])
 def login():

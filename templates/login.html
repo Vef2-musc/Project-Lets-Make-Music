@@ -1,15 +1,27 @@
-<!DOCTYPE html>
 <html>
+    <head>
+        <title>Login page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--<link href="static/bootstrap.min.css" rel="stylesheet" media="screen">-->
+    </head>
     <body>
-        <h4>Halló Login Síða</h4>
-        <p><a href="{{ url_for('forsida') }}">forsida</a></p>
-        <p><a href="{{ url_for('search') }}">leit</a></p>
-        <p><a href="{{ url_for('back') }}">Home</a></p>
-        <form>
-            <label for="usrname">Username</label><br>
-            <input type="text" id="usrname" name="usrname" value="Username"><br>
-            <label for="psw">Password</label><br>
-            <input type="text" id="psw" name="psw" value="Password"><br>
-        </form>
+        {% extends 'base.html' %}
+        {% block content %}
+        <div class="div">
+            <h2>Login</h2>
+            <br>
+            <form action="" method="post">
+                <input type="text" placeholder="email" name="email" value="{{request.form.user }}">
+                <input type="password" placeholder="pass" name="password" value="{{request.form.pass }}">
+                <input class="btn btn-default" type="submit" value="Login">
+            </form>
+            {% if error %}
+            <p class="error"><strong>Error:</strong>{{ error }}</p>
+            {% endif %}
+            <p><a href="{{ url_for('forsida') }}">forsida</a></p>
+            <p><a href="{{ url_for('leit') }}">leit</a></p>
+            <p><a href="{{ url_for('back') }}">Homepage</a></p>
+        </div>
+        {% endblock %}
     </body>
 </html>

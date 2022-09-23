@@ -48,7 +48,7 @@ def forsida():
         except:
             return 'Failed to login :('
     return render_template("index.html")
-@app.route("/login2", methods=['GET','POST'])
+@app.route("/login", methods=['GET','POST'])
 def login():
     
     return render_template("login.html")

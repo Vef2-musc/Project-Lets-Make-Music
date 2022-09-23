@@ -44,9 +44,11 @@ def forsida():
         try:
             user = auth.sign_in_with_email_and_password(email,password)
             session['user'] = email
-            return render_template("rett.html")
+            print('virkar')
+            return render_template("correct.html")
         except:
-            return render_template("rangt.html")
+            print('ekki virkar!!!')
+            return render_template("incorrect.html")
     return render_template("index.html")
 @app.route("/login", methods=['GET','POST'])
 def login():

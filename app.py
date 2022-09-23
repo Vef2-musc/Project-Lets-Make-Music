@@ -51,7 +51,7 @@ def forsida():
 @app.route("/login", methods=['GET','POST'])
 def login():
     return render_template("login.html")
-@app.route('/loggedin')
+@app.route('/logedin')
 def logedin():
     return render_template("acthomepage.html")
 @app.route("/search")

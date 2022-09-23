@@ -1,3 +1,4 @@
+#Hæ
 #from crypt import methods
 from distutils.command.config import config
 import email
@@ -6,7 +7,7 @@ import pyrebase
 from urllib import request
 from flask import Flask, render_template, request, redirect, url_for, session
 import re
-import pyrebase
+
 
 app=Flask(__name__,template_folder='templates')
 
@@ -31,7 +32,7 @@ app.secret_key = 'admin-69420'
 @app.route('/')
 def hello_world():
     return render_template("hompage.html")
-@app.route("/forsida", methods=['GET','POST'])
+@app.route("/login", methods=['GET','POST'])
 def forsida():
     if('user' in session):
         #print("virkar..")
@@ -59,6 +60,12 @@ def signup():
 @app.route("/back")
 def back():
     return redirect("/")
+@app.route('/signout')
+def signout():
+    session.pop('loggedin', None)
+    session.pop('user', None)
+    session.pop('nafn', None)
+    return redirect(url_for('login'))
 #----------
 
 #allt commentaða er eftir Guðjón og var bara að fikta svo ég gæti unnið betur í CSS
@@ -108,7 +115,7 @@ def back():
 #FIREBASE
 
 
-
+#hjalp :D
 
 if __name__ == "__main__":
     app.run(debug=True)

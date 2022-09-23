@@ -168,3 +168,10 @@ body.loggedin {
     grid-template:
     "nafnvefsidu indxlinks";
 }
+.hmpbod{
+    display: grid;
+}
+.menu{
+    display: grid;
+    justify-content: space-between;
+}

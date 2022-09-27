@@ -88,8 +88,8 @@ def yfirlit():
 	if request.method == 'POST':
 		name = request.form['name']
 		email = request.form['email']
-	karfa = []
-	session['karfa'] = karfa
+	liked = []
+	session['liked'] = liked
 	return render_template("yfirlit.html", liked=liked, name=name, email=email)
 
 @app.errorhandler(404)

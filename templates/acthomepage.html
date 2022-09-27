@@ -10,11 +10,14 @@
 		{% extends 'base.html' %}
         {% block content %}
         <section class="hmpbod">
-            <section class="menu">
-                <a href="{{ url_for('forsida') }}" class="menuitem">Messages</a>
-                <a href="{{ url_for('signup') }}" class="menuitem">groups</a>
-                <a href="{{ url_for('leit') }}" class="menuitem">leit</a>
-            </section>
+            <div class="dropdown">
+                <span>Holder fyrir dropdown</span>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('forsida') }}" class="menuitem">Messages</a><br>
+                    <a href="{{ url_for('signup') }}" class="menuitem">groups</a><br>
+                    <a href="{{ url_for('leit') }}" class="menuitem">leit</a><br>
+                </div>
+            </div>
             <table class="holder">
                 <tr>
                     <th>Name</th>

@@ -79,7 +79,7 @@ def signup():
         except:
             print('ekki virkar!!!')
             return render_template("incorrect.html")
-    return render_template("index.html")
+    return render_template("signup.html")
 @app.route("/back")
 def back():
     return redirect("/")
@@ -87,7 +87,7 @@ def back():
 def signout():
     session.pop('user', None)
     session.pop('nafn', None)
-    return redirect(url_for('forsida'))
+    return redirect(url_for('index'))
 
 @app.route('/yfirlit', methods=['GET','POST'])
 def yfirlit():

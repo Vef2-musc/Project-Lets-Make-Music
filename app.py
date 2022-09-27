@@ -84,7 +84,7 @@ def back():
 def signout():
     session.pop('user', None)
     session.pop('nafn', None)
-    return redirect(url_for('forsida'))
+    return redirect(url_for('index'))
 
 @app.route('/yfirlit', methods=['GET','POST'])
 def yfirlit():

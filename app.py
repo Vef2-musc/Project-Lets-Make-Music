@@ -50,22 +50,26 @@ def forsida():
             print('ekki virkar!!!')
             return render_template("incorrect.html")
     return render_template("index.html")
-@app.route('/loggedin')
-def loggedin():
-    return render_template("acthomepage.html")
+#@app.route('/loggedin')
+#def loggedin():
+#    return render_template("acthomepage.html")
 
 @app.route("/search")
 def leit():
     return render_template("search.html")
 @app.route("/signup", methods=['POST','GET'])
 def signup():
-    msg = ''
-    if request.method == 'POST' and 'user' in request.form and 'pass' in request.form:
-        username = request.form['user']
-        password = request.form['pass']
-    elif request.method == 'POST':
-        msg = 'Please fill out the form!'
-    return render_template('signup.html', msg=msg)
+    if request.method == 'POST':
+        email = request.form.get("username")
+        pwd = request.form.get("password")
+        try:
+            user = auth.create_user_with_email_and_password(email,pwd)
+            print("signin complete")
+            return render_template("correct.html")
+        except:
+            print('ekki virkar!!!')
+            return render_template("incorrect.html")
+    return render_template("index.html")
 @app.route("/back")
 def back():
     return redirect("/")

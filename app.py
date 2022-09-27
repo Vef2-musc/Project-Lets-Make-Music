@@ -50,6 +50,9 @@ def forsida():
             print('ekki virkar!!!')
             return render_template("incorrect.html")
     return render_template("index.html")
+@app.route("/home")
+def home():
+    return render_template("acthomepage.html")
 @app.route("/login", methods=['GET','POST'])
 def login():
     

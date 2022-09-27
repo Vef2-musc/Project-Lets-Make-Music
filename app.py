@@ -51,15 +51,18 @@ def forsida():
             print('ekki virkar!!!')
             return render_template("incorrect.html")
     return render_template("acthomepage.html")
-@app.route("/home")
+@app.route('/home')
 def home():
-    return render_template("acthomepage.html")
-#'''@app.route("/login", methods=['GET','POST'])
-#def login():
-#    return render_template("login.html")
-#@app.route('/loggedin')
-#def loggedin():
-    #return render_template("acthomepage.html")
+    if 'user' in session:
+        return render_template('acthomepage.html', username=session['user'])
+    return redirect(url_for('forsida'))
+
+'''@app.route("/login", methods=['GET','POST'])
+def login():
+    return render_template("login.html")'''
+'''@app.route('/loggedin')
+def loggedin():
+    return render_template("acthomepage.html")'''
 
 @app.route("/search")
 def leit():

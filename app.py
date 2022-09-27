@@ -30,7 +30,7 @@ app.secret_key = 'admin-69420'
 #-------------
 
 @app.route('/')
-def home():
+def index():
     return render_template("index.html")
 @app.route("/login", methods=['GET','POST'])
 def forsida():
@@ -45,11 +45,14 @@ def forsida():
             user = auth.sign_in_with_email_and_password(email,password)
             session['user'] = email
             print('virkar')
-            return render_template("correct.html")
+            return render_template("correct.html",grom = session['user'])
         except:
             print('ekki virkar!!!')
             return render_template("incorrect.html")
     return render_template("index.html")
+@app.route("/home")
+def home():
+    return render_template("acthomepage.html")
 @app.route("/login", methods=['GET','POST'])
 def login():
     return render_template("login.html")
@@ -78,6 +81,15 @@ def signout():
     session.pop('user', None)
     session.pop('nafn', None)
     return redirect(url_for('login'))
+
+@app.route('/yfirlit', methods=['GET','POST'])
+def yfirlit():
+	if request.method == 'POST':
+		name = request.form['name']
+		email = request.form['email']
+	liked = []
+	session['liked'] = liked
+	return render_template("yfirlit.html", liked=liked, name=name, email=email)
 
 @app.errorhandler(404)
 def error404(error):

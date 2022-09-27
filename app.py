@@ -37,7 +37,7 @@ def forsida():
     if('user' in session):
         #print("virkar..")
         #return render_template('homepage.html')
-        return 'Hi, {}'.format(session['user'], render_template('acthomepage.html'))
+        return render_template('acthomepage.html')
     if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
@@ -45,7 +45,8 @@ def forsida():
             user = auth.sign_in_with_email_and_password(email,password)
             session['user'] = email
             print('virkar')
-            return render_template("correct.html")
+            goomba = session["user"]
+            return render_template("correct.html",grom = session['user'])
         except:
             print('ekki virkar!!!')
             return render_template("incorrect.html")

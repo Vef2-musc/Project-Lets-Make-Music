@@ -54,12 +54,12 @@ def forsida():
 @app.route("/home")
 def home():
     return render_template("acthomepage.html")
-'''@app.route("/login", methods=['GET','POST'])
-def login():
-    return render_template("login.html")'''
-'''@app.route('/loggedin')
-def loggedin():
-    return render_template("acthomepage.html")'''
+#'''@app.route("/login", methods=['GET','POST'])
+#def login():
+#    return render_template("login.html")
+#@app.route('/loggedin')
+#def loggedin():
+    #return render_template("acthomepage.html")
 
 @app.route("/search")
 def leit():

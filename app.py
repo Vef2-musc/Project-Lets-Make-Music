@@ -32,7 +32,7 @@ app.secret_key = 'admin-69420'
 @app.route('/')
 def index():
     return render_template("index.html")
-@app.route("/login", methods=['GET','POST'])
+@app.route("/index", methods=['GET','POST'])
 def forsida():
     if('user' in session):
         #print("virkar..")

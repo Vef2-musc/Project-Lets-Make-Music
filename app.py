@@ -77,7 +77,7 @@ def signup():
             print("signin complete")
             return render_template("correct.html")
         except:
-            print('ekki virkar!!!')
+            print('signin failed :(')
             return render_template("incorrect.html")
     return render_template("signup.html")
 @app.route("/back")

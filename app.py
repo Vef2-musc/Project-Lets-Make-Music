@@ -82,7 +82,7 @@ def back():
     return redirect("/")
 @app.route('/signout')
 def signout():
-    session.pop('loggedin', None)
+    session.pop('forsida', None)
     session.pop('user', None)
     session.pop('nafn', None)
     return redirect(url_for('forsida'))

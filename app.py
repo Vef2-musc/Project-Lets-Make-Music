@@ -50,6 +50,10 @@ def forsida():
             print('ekki virkar!!!')
             return render_template("incorrect.html")
     return render_template("index.html")
+@app.route("/login", methods=['GET','POST'])
+def login():
+    
+    return render_template("login.html")
 @app.route('/loggedin')
 def loggedin():
     return render_template("acthomepage.html")
@@ -75,6 +79,11 @@ def signout():
     session.pop('user', None)
     session.pop('nafn', None)
     return redirect(url_for('login'))
+
+@app.errorhandler(404)
+def error404(error):
+	return "Site Not Found", 404
+
 #----------
 
 #allt commentaða er eftir Guðjón og var bara að fikta svo ég gæti unnið betur í CSS

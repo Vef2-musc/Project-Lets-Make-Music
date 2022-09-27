@@ -196,3 +196,7 @@ body.loggedin {
 .menuitem{
     margin: 2%;
 }
+.holder{
+    display: grid;
+    justify-content: center;
+}

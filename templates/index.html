@@ -10,10 +10,10 @@
         <div class="login">
 			    <h1>Login</h1>
 			    <div class="links">
-				    <a href="{{ url_for('login') }}" class="active">Login</a>
+				    <a href="{{ url_for('forsida') }}" class="active">Login</a>
 				    <a href="{{ url_for('signup') }}">Register</a>
            </div>
-        <form action="{{ url_for('login') }}" method="post">
+        <form action="{{ url_for('forsida') }}" method="post">
 			<input type="text" placeholder="email" name="email" value="{{request.form.user }}">
             <input type="password" placeholder="pass" name="password" value="{{request.form.pass }}">
             <input class="btn btn-default" type="submit" value="Login">

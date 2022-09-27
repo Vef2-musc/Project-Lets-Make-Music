@@ -45,18 +45,19 @@ def forsida():
             user = auth.sign_in_with_email_and_password(email,password)
             session['user'] = email
             print('virkar')
+            goomba = session["user"]
             return render_template("correct.html",grom = session['user'])
         except:
             print('ekki virkar!!!')
             return render_template("incorrect.html")
-    return render_template("index.html")
+    return render_template("acthomepage.html")
 @app.route("/home")
 def home():
     return render_template("acthomepage.html")
-@app.route("/login", methods=['GET','POST'])
-def login():
+#@app.route("/login", methods=['GET','POST'])
+#def login():
     
-    return render_template("login.html")
+    #return render_template("login.html")
 @app.route('/loggedin')
 def loggedin():
     return render_template("acthomepage.html")
@@ -81,7 +82,7 @@ def signout():
     session.pop('loggedin', None)
     session.pop('user', None)
     session.pop('nafn', None)
-    return redirect(url_for('login'))
+    return redirect(url_for('forsida'))
 
 @app.route('/yfirlit', methods=['GET','POST'])
 def yfirlit():

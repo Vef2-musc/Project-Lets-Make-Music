@@ -75,6 +75,11 @@ def signout():
     session.pop('user', None)
     session.pop('nafn', None)
     return redirect(url_for('login'))
+
+@app.errorhandler(404)
+def error404(error):
+	return "Site Not Found", 404
+
 #----------
 
 #allt commentaða er eftir Guðjón og var bara að fikta svo ég gæti unnið betur í CSS

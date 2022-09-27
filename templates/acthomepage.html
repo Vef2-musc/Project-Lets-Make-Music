@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+        <link rel="shortcut icon" href="https://raw.githubusercontent.com/Vef2-musc/Project-Lets-Make-Music/a8cbc4dca67862dc117ebce7ed90b9308fa8f181/Images/icons8-google-play-music.svg">
 		<meta charset="utf-8">
 		<title>{% block title %}{% endblock %}</title>
 		<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
@@ -10,11 +11,19 @@
 		{% extends 'base.html' %}
         {% block content %}
         <section class="hmpbod">
-            <section class="menu">
-                <a href="{{ url_for('forsida') }}">Messages</a>
-                <a href="{{ url_for('signup') }}">groups</a>
-                <a href="{{ url_for('leit') }}">leit</a>
-            </section>
+            <div class="dropdown">
+                <span>Holder fyrir dropdown</span>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('forsida') }}" class="menuitem">Messages</a><br>
+                    <a href="{{ url_for('forsida') }}" class="menuitem">groups</a><br>
+                    <a href="{{ url_for('leit') }}" class="menuitem">leit</a><br>
+                </div>
+            </div>
+            <table class="holder">
+                <tr><th>Name</th></tr>
+                <tr><th>Instrument</th></tr>
+                <tr></tr><th>age</th></tr>
+            </table>
         </section>
 		{% endblock %}
 	</body>

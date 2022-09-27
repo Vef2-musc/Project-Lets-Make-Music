@@ -11,7 +11,8 @@ body {
 }
 .login, .register {
     width: 400px;
-    background-color: #ffffff;
+    background: rgb(31,30,30);
+    background: linear-gradient(159deg, rgba(31,30,30,1) 0%, rgba(100,100,112,1) 49%);
     box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
     margin: 100px auto;
 }
@@ -66,7 +67,8 @@ body {
     width: 100%;
     padding: 15px;
     margin-top: 20px;
-    background-color: #3274d6;
+    background: rgb(41,41,41);
+    background: linear-gradient(142deg, rgba(41,41,41,1) 0%, rgba(100,100,112,1) 50%, rgba(174,174,174,1) 100%);
     border: 0;
     cursor: pointer;
     font-weight: bold;

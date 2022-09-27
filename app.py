@@ -31,13 +31,13 @@ app.secret_key = 'admin-69420'
 
 @app.route('/')
 def home():
-    return render_template("hompage.html")
+    return render_template("index.html")
 @app.route("/login", methods=['GET','POST'])
 def forsida():
     if('user' in session):
         #print("virkar..")
         #return render_template('homepage.html')
-        return 'Hi, {}'.format(session['user'])
+        return 'Hi, {}'.format(session['user'], render_template('acthomepage.html'))
     if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
@@ -50,9 +50,6 @@ def forsida():
             print('ekki virkar!!!')
             return render_template("incorrect.html")
     return render_template("index.html")
-@app.route("/login", methods=['GET','POST'])
-def login():
-    return render_template("login.html")
 @app.route('/loggedin')
 def loggedin():
     return render_template("acthomepage.html")

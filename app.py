@@ -76,7 +76,7 @@ def signup():
         except:
             print('ekki virkar!!!')
             return render_template("incorrect.html")
-    return render_template("index.html")
+    return render_template("signup.html")
 @app.route("/back")
 def back():
     return redirect("/")

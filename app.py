@@ -45,18 +45,27 @@ def forsida():
             user = auth.sign_in_with_email_and_password(email,password)
             session['user'] = email
             print('virkar')
+            goomba = session["user"]
             return render_template("correct.html",grom = session['user'])
         except:
             print('ekki virkar!!!')
             return render_template("incorrect.html")
-    return render_template("index.html")
+    return render_template("acthomepage.html")
 @app.route("/home")
 def home():
     return render_template("acthomepage.html")
+<<<<<<< HEAD
 '''@app.route("/login", methods=['GET','POST'])
 def login():
     return render_template("login.html")'''
 '''@app.route('/loggedin')
+=======
+#@app.route("/login", methods=['GET','POST'])
+#def login():
+    
+    #return render_template("login.html")
+@app.route('/loggedin')
+>>>>>>> 092ce2280bbe80f23706d862c3d264c5afe33af8
 def loggedin():
     return render_template("acthomepage.html")'''
 
@@ -65,13 +74,17 @@ def leit():
     return render_template("search.html")
 @app.route("/signup", methods=['POST','GET'])
 def signup():
-    msg = ''
-    if request.method == 'POST' and 'user' in request.form and 'pass' in request.form:
-        username = request.form['user']
-        password = request.form['pass']
-    elif request.method == 'POST':
-        msg = 'Please fill out the form!'
-    return render_template('signup.html', msg=msg)
+    if request.method == 'POST':
+        email = request.form.get("username")
+        pwd = request.form.get("password")
+        try:
+            user = auth.create_user_with_email_and_password(email,pwd)
+            print("signin complete")
+            return render_template("correct.html")
+        except:
+            print('ekki virkar!!!')
+            return render_template("incorrect.html")
+    return render_template("index.html")
 @app.route("/back")
 def back():
     return redirect("/")
@@ -80,7 +93,7 @@ def signout():
     session.pop('loggedin', None)
     session.pop('user', None)
     session.pop('nafn', None)
-    return redirect(url_for('login'))
+    return redirect(url_for('forsida'))
 
 @app.route('/yfirlit', methods=['GET','POST'])
 def yfirlit():

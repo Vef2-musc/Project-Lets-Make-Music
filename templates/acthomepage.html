@@ -14,16 +14,14 @@
                 <span>Holder fyrir dropdown</span>
                 <div class="dropdown-content">
                     <a href="{{ url_for('forsida') }}" class="menuitem">Messages</a><br>
-                    <a href="{{ url_for('signup') }}" class="menuitem">groups</a><br>
+                    <a href="{{ url_for('loggedin') }}" class="menuitem">groups</a><br>
                     <a href="{{ url_for('leit') }}" class="menuitem">leit</a><br>
                 </div>
             </div>
             <table class="holder">
-                <tr>
-                    <th>Name</th>
-                    <th>Instrument</th>
-                    <th>age</th>
-                </tr>
+                <tr><th>Name</th></tr>
+                <tr><th>Instrument</th></tr>
+                <tr></tr><th>age</th></tr>
             </table>
         </section>
 		{% endblock %}

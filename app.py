@@ -45,7 +45,6 @@ def forsida():
             user = auth.sign_in_with_email_and_password(email,password)
             session['user'] = email
             print('virkar')
-            goomba = session["user"]
             return render_template("correct.html",grom = session['user'])
         except:
             print('ekki virkar!!!')

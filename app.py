@@ -30,7 +30,7 @@ app.secret_key = 'admin-69420'
 #-------------
 
 @app.route('/')
-def home():
+def index():
     return render_template("index.html")
 @app.route("/login", methods=['GET','POST'])
 def forsida():
@@ -82,6 +82,15 @@ def signout():
     session.pop('user', None)
     session.pop('nafn', None)
     return redirect(url_for('login'))
+
+@app.route('/yfirlit', methods=['GET','POST'])
+def yfirlit():
+	if request.method == 'POST':
+		name = request.form['name']
+		email = request.form['email']
+	karfa = []
+	session['karfa'] = karfa
+	return render_template("yfirlit.html", liked=liked, name=name, email=email)
 
 @app.errorhandler(404)
 def error404(error):

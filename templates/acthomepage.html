@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="https://raw.githubusercontent.com/Vef2-musc/Project-Lets-Make-Music/a8cbc4dca67862dc117ebce7ed90b9308fa8f181/Images/icons8-google-play-music.svg">
 		<meta charset="utf-8">
 		<title>{% block title %}{% endblock %}</title>
@@ -23,11 +24,23 @@
                     <a href="{{ url_for('leit') }}" class="menuitem">leit</a><br>
                 </div>
             </div>
-            <div class="row">
-                <div class="column">nafn</div>
-                <div class="column">instruments</div>
-                <div class="column">genres</div>
-            </div>
+            <table>
+                <caption>Artist</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Nafn</th>
+                        <th scope="col">Instruments</th>
+                        <th scope="col">Genres</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td data-label="Nafn">Tst</td>
+                      <td data-label="Instruments">Drums, Sax</td>
+                      <td data-label="Genres">Hip Hop</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 		{% endblock %}
 	</body>

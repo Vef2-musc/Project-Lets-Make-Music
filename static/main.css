@@ -53,7 +53,7 @@ body {
     align-items: center;
     width: 50px;
     height: 50px;
-    background-color: #7f54b2;
+    background: linear-gradient(180deg, rgba(79,84,180,1) 0%, rgba(162,56,190,1) 100%);
     color: #ffffff;
 }
 .login form input[type="password"], .login form input[type="text"], .login form input[type="email"], .register form input[type="password"], .register form input[type="text"], .register form input[type="email"] {
@@ -87,7 +87,8 @@ body {
 }
 
 .navtop {
-    background-color: #2f3947;
+    background: rgb(41,41,41);
+    background: linear-gradient(142deg, rgba(41,41,41,1) 0%, rgba(100,100,112,1) 50%, rgba(174,174,174,1) 100%);
     height: 60px;
     width: 100%;
     border: 0;
@@ -106,7 +107,7 @@ body {
     flex: 1;
     font-size: 24px;
     padding: 0;
-   margin: 0;
+    margin: 0;
     color: #eaebed;
     font-weight: normal;
 }
@@ -267,7 +268,8 @@ table caption {
         display: block;
     }
     .navtop {
-        background-color: #2f3947;
+        background: rgb(41,41,41);
+        background: linear-gradient(142deg, rgba(41,41,41,1) 0%, rgba(100,100,112,1) 50%, rgba(174,174,174,1) 100%);
         height: 30px;
         width: 100%;
         border: 0;

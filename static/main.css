@@ -187,6 +187,7 @@ body.loggedin {
   position: relative;
   display: inline-block;
   background-color: #2f3947;
+  align-items: center;
 }
 
 .dropdown-content {
@@ -206,6 +207,6 @@ body.loggedin {
     margin: 2%;
 }
 .holder{
-    display: grid;
-    justify-content: center;
+    display: table-column;
+    align-items: center;
 }

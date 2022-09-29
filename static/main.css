@@ -79,6 +79,13 @@ body {
     color: #7f54b2;
     transition: background-color 0.2s;
 }
+
+.login form input[type="submit"]:active, .register form input[type="submit"]:active {
+    color: #ffffff;
+    background: #7f54b2;
+    background-color: #7f54b2;
+}
+
 .navtop {
     background-color: #2f3947;
     height: 60px;

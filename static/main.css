@@ -341,4 +341,12 @@ table caption {
     tbody tr:nth-child(even) {
         background: white;
     }
+    .tenglar {
+        display: grid;
+        margin: 3%;
+        grid-template: 
+        "mapouter"
+        "contact"
+        "about";
+    }
 }

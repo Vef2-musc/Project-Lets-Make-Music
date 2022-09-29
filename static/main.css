@@ -209,7 +209,7 @@ table caption {
     display: grid;
     grid-template-columns: max-content;
     grid-template-areas: 
-    "menu holder holder";
+    "dropdown-content table-div";
 }
 .dropdown {
   position: relative;
@@ -225,8 +225,9 @@ table caption {
 .dropdown-content {
   display: block;
   position: fixed;
-  background-color: #2f3947c8;
+  background-color: #2f3947;
   min-width: 160px;
+  min-height: 290px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   padding: 12px 16px;
   z-index: 1;
@@ -262,7 +263,13 @@ table caption {
         padding: 12px 16px;
         z-index: 1;
     }
-    
+    .hmpbod{
+        display: grid;
+        grid-template-columns: max-content;
+        grid-template-areas: 
+        "menu"
+        "table-div";
+    }
     .dropdown:hover .dropdown-content {
         display: block;
     }

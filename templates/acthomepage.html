@@ -25,23 +25,35 @@
                     <a href="{{ url_for('leit') }}" class="menuitem">leit</a><br>
                 </div>
             </div>
-            <table>
-                <caption>Artist</caption>
-                <thead>
-                    <tr>
-                        <th scope="col">Nafn</th>
-                        <th scope="col">Instruments</th>
-                        <th scope="col">Genres</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                      <td data-label="Nafn">Tst</td>
-                      <td data-label="Instruments">Drums, Sax</td>
-                      <td data-label="Genres">Hip Hop</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-div">
+                <table>
+                    <caption>Artist</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Nafn</th>
+                            <th scope="col">Instruments</th>
+                            <th scope="col">Genres</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Nafn">Tst</td>
+                            <td data-label="Instruments">Drums, Sax</td>
+                            <td data-label="Genres">Hip Hop</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nafn">Goomba</td>
+                            <td data-label="Instruments">Bass</td>
+                            <td data-label="Genres">Pop</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Nafn">Chad</td>
+                            <td data-label="Instruments">Singer</td>
+                            <td data-label="Genres">Blues</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 		{% endblock %}
 	</body>

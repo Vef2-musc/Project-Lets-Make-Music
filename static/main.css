@@ -178,36 +178,33 @@ body.loggedin {
     "nafnvefsidu indxlinks";
 }
 table {
-    background-color: #2f3947;
-}
-table thead {
-    border: none;
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
+    border: 1px solid white;
+    border-collapse: collapse;
+    margin: 0;
     padding: 0;
-    position: absolute;
-    width: 1px;
+    table-layout: fixed;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 2em;
 }
 table tr {
-    border-bottom: 3px solid ;
-    display: block;
+    background-color: lightgray;
+    border: 1px solid whitesmoke;
+    padding: .35em;
 }
-
+table th,
 table td {
-    border-bottom: 1px solid gray;
-    display: block;
-    text-align: right;
+    padding: .625em;
+    text-align: center;
 }
-
-table td::before {
-    content: attr(data-label);
-    float: left;
-}
-
 tbody tr:nth-child(even) {
     background: white;
 }
+table caption {
+    font-display: bold;
+    font-size: 0.75cm;
+}
+
 .hmpbod{
     display: grid;
     grid-template-columns: max-content;
@@ -284,6 +281,41 @@ tbody tr:nth-child(even) {
     }
     .navtop div a:hover {
         color: #eaebed;
+    }
+    .table-div{
+        align-content: center;
+        margin-left: 20px;
+    }
+    table {
+        background-color: #2f3947;
+    }
+    table thead {
+        border: none;
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+    table tr {
+        border-bottom: 3px solid ;
+        display: block;
+    }
+    
+    table td {
+        border-bottom: 1px solid gray;
+        display: block;
+        text-align: right;
+    }
+    
+    table td::before {
+        content: attr(data-label);
+        float: left;
+    }
+    
+    tbody tr:nth-child(even) {
+        background: white;
     }
 }
 @media only screen and (max-width: 600px){

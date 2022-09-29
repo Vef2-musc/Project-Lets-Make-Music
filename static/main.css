@@ -177,6 +177,18 @@ body.loggedin {
     grid-template:
     "nafnvefsidu indxlinks";
 }
+
+.column {
+    float: left;
+    width: 33.33%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 .hmpbod{
     display: grid;
     grid-template-columns: max-content;

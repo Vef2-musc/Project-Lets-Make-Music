@@ -38,7 +38,7 @@ def forsida():
         #print("virkar..")
         #return render_template('homepage.html')
         return render_template('acthomepage.html')
-    if request.method == 'POST':
+    elif request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
         try:#ef þu nærð  að logga inn virkar try
@@ -50,7 +50,6 @@ def forsida():
         except:#ef þu nærð ekki að logga inn ferð þu aftur inna login siðuna
             print('ekki virkar!!!')
             return render_template("incorrect.html")
-    return render_template("acthomepage.html")
 @app.route('/home')
 def home():
     if 'user' in session:

@@ -20,12 +20,15 @@ config = {
     'messagingSenderId': "153066543311",
     'appId': "1:153066543311:web:2efa520260bb9f2316ffba",
     'measurementId': "G-3SK39RETG9",
-    'databaseURL':""
+    'databaseURL':"https://lets-make-music-default-rtdb.firebaseio.com/"#link a realtime database
 }
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
-
+db = firebase.database()
 app.secret_key = 'admin-69420'
+
+#data={"name":"palli","password":"abc123","music":["trommur","flautur"]}
+#db.push(data)
 
 #-------------
 
@@ -64,10 +67,13 @@ def leit():
 @app.route("/signup", methods=['POST','GET'])
 def signup():
     if request.method == 'POST':
-        email = request.form.get("username")
+        username = request.form.get("username")
+        email = request.form.get("email")
         pwd = request.form.get("password")
         try:
             user = auth.create_user_with_email_and_password(email,pwd)
+            db.child("user")
+            db.push(username,email,pwd)
             print("signin complete")
             return render_template("correct.html")
         except:

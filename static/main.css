@@ -205,7 +205,7 @@ table caption {
 }
 
 .profiles{
-    display: inline-block;
+    flex-direction: column;
     width: 30em;
     height: 40em;
     margin: 1em;
@@ -214,20 +214,33 @@ table caption {
     background: #232223;
 
 }
-
 .mynd {
     display: inline-block;
     width: 10em;
-    height: auto;
+    height: 10em;
     padding: 8px;
     border: 1px solid black;   
     border-radius: 0.5em; 
     background: linear-gradient(180deg, rgba(79,84,180,1) 0%, rgba(162,56,190,1) 100%); 
-    margin: 1em;
+    margin: 2em;
 }
-
 .name{
-    
+    position: absolute;
+    color: #c1c4c8;
+    margin-block-start: 1.5em;
+    margin-inline-start: 3em;
+    font-size: xx-large;
+    font-weight: bold;
+    text-decoration: none;
+}
+.audio{
+    position: absolute;
+    color: #c1c4c8;
+    margin-block-start: 11em;
+    margin-inline-start: -9em;
+    font-size: larger;
+    font-weight: bold;
+    text-decoration: none;
 }
 .hmpbod{
     display: grid;

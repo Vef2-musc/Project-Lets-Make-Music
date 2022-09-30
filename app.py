@@ -46,10 +46,10 @@ def forsida():
             session['user'] = email
             print('virkar')
             goomba = session["user"]
-            return render_template("correct.html",grom = session['user'])
+            return render_template("acthomepage.html",grom = session['user'])
         except:
             print('ekki virkar!!!')
-            return render_template("incorrect.html")
+            return render_template("index.html")
 @app.route('/home')
 def home():
     if 'user' in session:

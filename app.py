@@ -40,7 +40,7 @@ def forsida():
     if('user' in session):
         #print("virkar..")
         #return render_template('homepage.html')
-        return render_template('acthomepage.html')
+        return render_template('acthomepage.html', username=session['user'])
     elif request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
@@ -49,8 +49,8 @@ def forsida():
             session['user'] = email
             print('virkar')
             goomba = session["user"]
-            return render_template("acthomepage.html",grom = session['user'])
-        except:
+            return render_template("acthomepage.html",username = session['user'])
+        except:#ef þu nærð ekki að logga inn ferð þu aftur inna login siðuna
             print('ekki virkar!!!')
             return render_template("index.html")
 @app.route('/home')
@@ -61,6 +61,8 @@ def home():
 
 @app.route("/search")
 def leit():
+    if 'user' in session:
+        return render_template('search.html', username=session['user'])
     return render_template("search.html")
 @app.route("/signup", methods=['POST','GET'])
 def signup():

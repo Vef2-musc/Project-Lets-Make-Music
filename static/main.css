@@ -205,6 +205,31 @@ table caption {
     font-size: 0.75cm;
 }
 
+.profiles{
+    display: inline-block;
+    width: 30em;
+    height: 40em;
+    margin: 1em;
+    border: 1px solid black;
+    border-radius: 2em;
+    background: #232223;
+
+}
+
+.mynd {
+    display: inline-block;
+    width: 10em;
+    height: auto;
+    padding: 8px;
+    border: 1px solid black;   
+    border-radius: 0.5em; 
+    background: linear-gradient(180deg, rgba(79,84,180,1) 0%, rgba(162,56,190,1) 100%); 
+    margin: 1em;
+}
+
+.name{
+    
+}
 .hmpbod{
     display: grid;
     grid-template-columns: max-content;
@@ -216,7 +241,7 @@ table caption {
 .dropdown {
   position: relative;
   display: inline-block;
-  background-color: #2f3947;
+  background: none;
   align-items: center;
 }
 
@@ -226,8 +251,7 @@ table caption {
 
 .dropdown-content {
   display: block;
-  position: fixed;
-  background-color: #2f3947;
+  background: #2f3947;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   padding: 12px 16px;
@@ -321,9 +345,6 @@ table caption {
     .table-div{
         align-content: center;
         margin-left: 20px;
-    }
-    table {
-        background-color: #2f3947;
     }
     table thead {
         border: none;

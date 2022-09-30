@@ -41,13 +41,13 @@ def forsida():
     if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
-        try:
+        try:#ef þu nærð  að logga inn virkar try
             user = auth.sign_in_with_email_and_password(email,password)
             session['user'] = email
             print('virkar')
             goomba = session["user"]
             return render_template("correct.html",grom = session['user'])
-        except:
+        except:#ef þu nærð ekki að logga inn ferð þu aftur inna login siðuna
             print('ekki virkar!!!')
             return render_template("incorrect.html")
     return render_template("acthomepage.html")
@@ -65,11 +65,11 @@ def signup():
     if request.method == 'POST':
         email = request.form.get("username")
         pwd = request.form.get("password")
-        try:#ef þu nærð  að logga inn virkar try
+        try:
             user = auth.create_user_with_email_and_password(email,pwd)
             print("signin complete")
             return render_template("correct.html")
-        except:#ef þu nærð ekki að logga inn ferð þu aftur inna login siðuna
+        except:
             print('signin failed :(')
             return render_template("incorrect.html")
     return render_template("signup.html")

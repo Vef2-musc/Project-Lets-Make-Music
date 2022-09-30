@@ -46,7 +46,7 @@ def forsida():
             session['user'] = email
             print('virkar')
             goomba = session["user"]
-            return render_template("correct.html",username = session['user'])
+            return render_template("acthomepage.html",username = session['user'])
         except:#ef þu nærð ekki að logga inn ferð þu aftur inna login siðuna
             print('ekki virkar!!!')
             return render_template("index.html")

@@ -160,7 +160,6 @@ body.loggedin {
 }
 .tenglar {
     display: grid;
-    margin: 3%;
     grid-template: 
     "mapouter contact about";
 }
@@ -232,17 +231,16 @@ table caption {
 }
 .hmpbod{
     display: grid;
-    grid-template-columns: max-content;
     grid-template-areas: 
     "dropdown-content table-div";
     background: #464348;
 
 }
 .dropdown {
-  position: relative;
-  display: inline-block;
-  background: none;
-  align-items: center;
+    position: relative;
+    display: inline-block;
+    background: none;
+    align-items: center;
 }
 
 .borg {
@@ -270,7 +268,7 @@ table caption {
     margin: 5%;
 }
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 720px){
     .dropdown {
         position: relative;
         display: inline-block;

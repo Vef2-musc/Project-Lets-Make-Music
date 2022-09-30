@@ -49,7 +49,7 @@ def forsida():
             return render_template("correct.html",username = session['user'])
         except:#ef þu nærð ekki að logga inn ferð þu aftur inna login siðuna
             print('ekki virkar!!!')
-            return render_template("incorrect.html")
+            return render_template("index.html")
 @app.route('/home')
 def home():
     if 'user' in session:

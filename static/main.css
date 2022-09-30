@@ -243,6 +243,16 @@ table caption {
     font-weight: bold;
     text-decoration: none;
 }
+audio::-webkit-media-controls-panel {
+    background:  linear-gradient(180deg, rgba(79,84,180,1) 0%, rgba(162,56,190,1) 100%);
+}
+audio::-webkit-media-controls-play-button {
+    border-radius: 50%;
+}
+audio::-webkit-media-controls-play-button:hover {
+    background-color: rgba(177,212,224, .7);
+}
+
 .hmpbod{
     display: grid;
     grid-template-columns: max-content;

@@ -67,12 +67,13 @@ def leit():
 @app.route("/signup", methods=['POST','GET'])
 def signup():
     if request.method == 'POST':
-        email = request.form.get("username")
+        username = request.form.get("username")
+        email = request.form.get("email")
         pwd = request.form.get("password")
         try:
             user = auth.create_user_with_email_and_password(email,pwd)
             db.child("user")
-            db.push(user)
+            db.push(username,email,pwd)
             print("signin complete")
             return render_template("correct.html")
         except:

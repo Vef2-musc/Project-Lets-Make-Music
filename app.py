@@ -29,7 +29,6 @@ app.secret_key = 'admin-69420'
 
 #data={"name":"gusti","password":"abc123","music":["trommur","flautur"]}
 #db.push(data)
-
 #-------------
 
 @app.route('/')
@@ -57,7 +56,7 @@ def forsida():
 @app.route('/home')
 def home():
     
-    
+
     if 'user' in session:
         return render_template('acthomepage.html', username=session['user'])
     return redirect(url_for('forsida'))

@@ -58,7 +58,7 @@ def forsida():
 @app.route('/home')
 def home():
     
-    
+
     if 'user' in session:
         gamers =[{1:"Goomba",2:"goomba@gmail.com",3:"Trommur"},{1:"Tst",2:"tst@gmail.com",3:"Gítar,Trommur"}]
         return render_template('acthomepage.html', username=session['user'], len = len(gamers), gamers = gamers)
@@ -75,10 +75,11 @@ def signup():
         username = request.form.get("username")
         email = request.form.get("email")
         pwd = request.form.get("password")
+        Inst = request.form.get("instruments")
+        data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst]}
         try:
             user = auth.create_user_with_email_and_password(email,pwd)
-            db.child("user")
-            db.push(username,email,pwd)
+            db.child("User").push(data)
             print("signin complete")
             return render_template("correct.html")
         except:

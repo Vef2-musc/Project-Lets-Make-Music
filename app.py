@@ -2,7 +2,11 @@
 from distutils.command.config import config
 import email
 import os
+from plistlib import UID
 import pyrebase
+import firebase_admin
+from firebase_admin import auth
+from firebase_admin.auth import get_user
 from urllib import request
 from flask import Flask, render_template, request, redirect, url_for, session
 import re
@@ -19,30 +23,35 @@ config = {
     'messagingSenderId': "153066543311",
     'appId': "1:153066543311:web:2efa520260bb9f2316ffba",
     'measurementId': "G-3SK39RETG9",
-    'databaseURL':""
+    'databaseURL':"https://lets-make-music-default-rtdb.firebaseio.com/"#link a realtime database
 }
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
-
+db = firebase.database()
 app.secret_key = 'admin-69420'
+admin = firebase_admin
+#data={"name":"gusti","password":"abc123","music":["trommur","flautur"]}
+#db.push(data)
 
 #-------------
 
 @app.route('/')
-def home():
-    return render_template("hompage.html")
-@app.route("/login", methods=['GET','POST'])
+def index():
+    return render_template("index.html")
+@app.route("/index", methods=['GET','POST'])
 def forsida():
     if('user' in session):
         #print("virkar..")
         #return render_template('homepage.html')
-        return 'Hi, {}'.format(session['user'])
-    if request.method == 'POST':
+        gamers =[{1:"Goomba",2:"goomba@gmail.com",3:"Trommur"},{1:"Tst",2:"tst@gmail.com",3:"Gítar,Trommur"}]
+        return render_template('acthomepage.html', username=session['user'],  len = len(gamers), gamers = gamers)
+    elif request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
-        try:
+        try:#ef þu nærð  að logga inn virkar try
             user = auth.sign_in_with_email_and_password(email,password)
             session['user'] = email
+<<<<<<< HEAD
             print("virkar")
             return redirect("/")
         except:
@@ -52,71 +61,69 @@ def forsida():
 def login():
     
     return render_template("login.html")
+=======
+            print('virkar')
+            goomba = session["user"]
+            #pull
+            gamers =[{1:"Goomba",2:"goomba@gmail.com",3:"Trommur"},{1:"Tst",2:"tst@gmail.com",3:"Gítar,Trommur"}]
+            return render_template("acthomepage.html",username = session['user'],  len = len(gamers), gamers = gamers)
+        except:#ef þu nærð ekki að logga inn ferð þu aftur inna login siðuna
+            print('ekki virkar!!!')
+            return render_template("index.html")
+@app.route('/home')
+def home():
+    
+
+    if 'user' in session:
+        gamers =[{1:"Goomba",2:"goomba@gmail.com",3:"Trommur"},{1:"Tst",2:"tst@gmail.com",3:"Gítar,Trommur"}]
+        return render_template('acthomepage.html', username=session['user'], len = len(gamers), gamers = gamers)
+    return redirect(url_for('forsida'))
+
+>>>>>>> dev
 @app.route("/search")
 def leit():
+    if 'user' in session:
+        return render_template('search.html', username=session['user'])
     return render_template("search.html")
 @app.route("/signup", methods=['POST','GET'])
 def signup():
+    if request.method == 'POST':
+        username = request.form.get("username")
+        email = request.form.get("email")
+        pwd = request.form.get("password")
+        Inst = request.form.get("instruments")
+        data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst]}
+        try:
+            user = auth.create_user_with_email_and_password(email,pwd)
+            db.child("User").push(data)
+            print("signin complete")
+            return render_template("correct.html")
+        except:
+            print('signin failed :(')
+            return render_template("incorrect.html")
     return render_template("signup.html")
 @app.route("/back")
 def back():
     return redirect("/")
 @app.route('/signout')
 def signout():
-    session.pop('loggedin', None)
     session.pop('user', None)
     session.pop('nafn', None)
-    return redirect(url_for('login'))
-#----------
+    return redirect(url_for('index'))
 
-#allt commentaða er eftir Guðjón og var bara að fikta svo ég gæti unnið betur í CSS
-#@app.route('/', methods=['GET', 'POST'])
-#def login():
-#    msg = ''
-#    if request.method == 'POST' and 'user' in request.form and 'pass' in request.form:
-#        username = request.form['user']
-#        password = request.form['pass']
-#    cursor = pyrebase.connection.cursor(pyrebase.cursors.DictCursor)
-#    cursor.execute('SELECT * FROM users WHERE user = %s AND pass = %s', (user, pass))
-#    users = cursor.fetchone()
-#    if account:
-#            session['loggedin'] = True
-#            session['user'] = account['user']
-#            session['nafn'] = account['nafn']
-#            return 'Logged in successfully!'
-#        else:
-#            msg = 'Incorrect username or password!'
-#    return render_template('index.html', msg='') 
+@app.route('/yfirlit', methods=['GET','POST'])
+def yfirlit():
+	if request.method == 'POST':
+		name = request.form['name']
+		email = request.form['email']
+	liked = []
+	session['liked'] = liked
+	return render_template("yfirlit.html", liked=liked, name=name, email=email)
 
+@app.errorhandler(404)
+def error404(error):
+	return "Site Not Found", 404
 
-
-#@app.route('/signout')
-#def signout():
-#    session.pop('loggedin', None)
-#    session.pop('user', None)
-#    session.pop('nafn', None)
-#    return redirect(url_for('login'))
-
-#@app.route('/register', methods=['GET', 'POST'])
-#def register():
-#    msg = ''
-#    if request.method == 'POST' and 'user' in request.form and 'pass' in request.form:
-#        username = request.form['user']
-#        password = request.form['pass']
-#    elif request.method == 'POST':
-#        msg = 'Please fill out the form!'
-#    return render_template('signup.html', msg=msg)
-
-#@app.route('/home')
-#def home():
-#    if 'loggedin' in session:
-#        return render_template('homepage.html', username=session['user'])
-#    return redirect(url_for('login'))
-
-#FIREBASE
-
-
-#hjalp :D
 
 
 # goomba

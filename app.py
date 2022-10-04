@@ -68,7 +68,6 @@ def home():
         return render_template('acthomepage.html', username=session['user'], len = len(gamers), gamers = gamers)
     return redirect(url_for('forsida'))
 
->>>>>>> dev
 @app.route("/search")
 def leit():
     if 'user' in session:

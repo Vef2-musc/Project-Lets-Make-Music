@@ -198,7 +198,6 @@ body.loggedin {
     margin: 2em;
 }
 .name{
-    position: absolute;
     top: 30%;
     color: #c1c4c8;
     margin-block-start: 1.5em;

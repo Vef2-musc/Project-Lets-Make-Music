@@ -40,7 +40,8 @@ def forsida():
     if('user' in session):
         #print("virkar..")
         #return render_template('homepage.html')
-        return render_template('acthomepage.html', username=session['user'])
+        gamers =[{1:"Goomba",2:"goomba@gmail.com",3:"Trommur"},{1:"Tst",2:"tst@gmail.com",3:"Gítar,Trommur"}]
+        return render_template('acthomepage.html', username=session['user'],  len = len(gamers), gamers = gamers)
     elif request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
@@ -59,13 +60,14 @@ def home():
     
     
     if 'user' in session:
-        return render_template('acthomepage.html', username=session['user'])
+        gamers =[{1:"Goomba",2:"goomba@gmail.com",3:"Trommur"},{1:"Tst",2:"tst@gmail.com",3:"Gítar,Trommur"}]
+        return render_template('acthomepage.html', username=session['user'], len = len(gamers), gamers = gamers)
     return redirect(url_for('forsida'))
 
 @app.route("/search")
 def leit():
     if 'user' in session:
-        return render_template('search.html', username=session['user'],galbo = 10)
+        return render_template('search.html', username=session['user'])
     return render_template("search.html")
 @app.route("/signup", methods=['POST','GET'])
 def signup():

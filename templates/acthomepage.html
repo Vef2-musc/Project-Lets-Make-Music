@@ -29,14 +29,15 @@
             </div>
             <div class="table-div">
                 <tbody>
-                    {%for i in range(10)%}
+                    {%for i in range(0, len)%}
   
 
                     <div class="profiles">
                         <img class="mynd" src="{{ url_for('static',filename='mynd1.jpg') }}" alt="{{ item }}">
-                        <span class="name">Tst</span>
-                        <span class="email"></span>
-                        <span class="instrument"></span>
+                       
+                        <span class="name">{{gamers[i][1]}}</span>
+                        <span class="email">{{gamers[i][2]}}</span>
+                        <span class="instrument">{{gamers[i][3]}}</span>
                         <div class="preview-audio">
                             <span class="preview">Preview:
                                 <audio controls class="audio-controls">

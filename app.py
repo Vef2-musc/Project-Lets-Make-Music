@@ -5,8 +5,6 @@ import email
 import os
 from plistlib import UID
 import pyrebase
-import firebase_admin
-from firebase_admin import auth
 from urllib import request
 from flask import Flask, render_template, request, redirect, url_for, session
 import re
@@ -62,10 +60,12 @@ def forsida():
             return render_template("index.html")
 @app.route('/home')
 def home():
+    
+
     if 'user' in session:
         gamers =[{1:"Goomba",2:"goomba@gmail.com",3:"Trommur"},{1:"Tst",2:"tst@gmail.com",3:"Gítar,Trommur"}]
         return render_template('acthomepage.html', username=session['user'], len = len(gamers), gamers = gamers)
-    return redirect(url_for('index'))
+    return redirect(url_for('forsida'))
 
 @app.route("/search")
 def leit():

@@ -56,6 +56,8 @@ def forsida():
             return render_template("index.html")
 @app.route('/home')
 def home():
+    
+    
     if 'user' in session:
         return render_template('acthomepage.html', username=session['user'])
     return redirect(url_for('forsida'))
@@ -63,7 +65,7 @@ def home():
 @app.route("/search")
 def leit():
     if 'user' in session:
-        return render_template('search.html', username=session['user'])
+        return render_template('search.html', username=session['user'],galbo = 10)
     return render_template("search.html")
 @app.route("/signup", methods=['POST','GET'])
 def signup():

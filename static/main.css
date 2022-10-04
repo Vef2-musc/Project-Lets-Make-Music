@@ -288,15 +288,12 @@ audio::-webkit-media-controls-play-button:hover {
     margin: 5%;
 }
 
-<<<<<<< HEAD
 .instruments{
     background-color: beige;
     border-color: black;
     border-radius: 5px;
-=======
 .extra{
     width: 100px;
->>>>>>> dfcb9ae145fbd7f1619db63567b0929b01bc0fab
 }
 
 @media only screen and (max-width: 720px){

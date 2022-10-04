@@ -291,6 +291,7 @@ audio::-webkit-media-controls-play-button:hover {
     background-color: beige;
     border-color: black;
     border-radius: 5px;
+}
 .extra{
     width: 100px;
 }

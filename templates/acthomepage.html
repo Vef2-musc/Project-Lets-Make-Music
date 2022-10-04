@@ -33,11 +33,13 @@
                     <div class="profiles">
                         <img class="mynd" src="{{ url_for('static',filename='mynd1.jpg') }}" alt="{{ item }}">
                         <span class="name">Tst</span>
-                        <span class="audio">Preview:
-                            <audio controls class="audio-controls">
-                                <source src="{{ url_for('static',filename='song1.mp3') }}" type="audio/mpeg">
-                            </audio>
-                        </span>
+                        <div class="preview-audio">
+                            <span class="preview">Preview:
+                                <audio controls class="audio-controls">
+                                    <source src="{{ url_for('static',filename='song1.mp3') }}" type="audio/mpeg">
+                                </audio>
+                            </span>
+                        </div>
                     </div>
                 </tbody>
             </div>

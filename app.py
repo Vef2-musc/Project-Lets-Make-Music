@@ -56,6 +56,8 @@ def forsida():
             return render_template("index.html")
 @app.route('/home')
 def home():
+    
+    
     if 'user' in session:
         return render_template('acthomepage.html', username=session['user'])
     return redirect(url_for('forsida'))

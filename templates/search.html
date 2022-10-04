@@ -3,45 +3,48 @@
     <head>
         <link rel="shortcut icon" href="https://raw.githubusercontent.com/Vef2-musc/Project-Lets-Make-Music/a8cbc4dca67862dc117ebce7ed90b9308fa8f181/Images/icons8-google-play-music.svg">
     </head>
-    <body class="search">
+    <body>
         {% extends 'base.html' %}
         {% block content %}
-        <form class="searchbar">
-            <input type="text" name="username" placeholder="Search" id="user" required>
-        </form>
-        <div class="grid-div">
-            <tbody>
-                {%for i in range(10)%}
-
-
-                <div class="profiles">
-                    <img class="mynd" src="{{ url_for('static',filename='mynd1.jpg') }}" alt="{{ item }}">
-                    <span class="name">Tst</span>
-                    <span class="email">tst@gmail.com</span>
-                    <span class="instrument">Trommur</span>
-                    <div class="preview-audio">
-                        <span class="preview">Preview:
-                            <audio controls class="audio-controls">
-                                <source src="{{ url_for('static',filename='song1.mp3') }}" type="audio/mpeg">
-                            </audio>
-                        </span>
+        <section class="searchbod">
+            <form class="searchbar">
+                <input type="text" name="username" placeholder="Search" id="user" required>
+            </form>
+            <div class="grid-div">
+                <tbody>
+                    {%for i in range(10)%}
+                    <div class="profiles">
+                        <img class="mynd" src="{{ url_for('static',filename='mynd1.jpg') }}" alt="{{ item }}">
+                        <span class="name">Tst</span>
+                        <span class="email">tst@gmail.com</span>
+                        <span class="instrument">Trommur</span>
+                        <div class="preview-audio">
+                            <span class="preview">Preview:
+                                <audio controls class="audio-controls">
+                                    <source src="{{ url_for('static',filename='song1.mp3') }}" type="audio/mpeg">
+                                </audio>
+                            </span>
+                        </div>
                     </div>
-                    
-                </div>
-                {%endfor%}
-            </tbody>
-        </div>
-        <form class="filter">
-            <section class="instruments">
-                <h5>Hljóðfæri</h5>
-                <input type="checkbox" name="piano">
-                <label for="piano">Píanó</label><br><br>
-                <input type="checkbox" name="drums">
-                <label for="drums">Trommur</label><br><br>
-                <input type="checkbox" name="vocals">
-                <label for="vocals">Söngur</label><br><br>
-            </section>
-        </form>
+                    {%endfor%}
+                </tbody>
+            </div>
+            <form class="filter">
+                <section class="filtersect">
+                    <h5>Hljóðfæri</h5>
+                    <input type="checkbox" name="piano">
+                    <label for="piano">Píanó</label><br><br>
+                    <input type="checkbox" name="drums">
+                    <label for="drums">Trommur</label><br><br>
+                    <input type="checkbox" name="vocals">
+                    <label for="vocals">Söngur</label><br><br>
+                </section><br>
+                <section class="filtersect">
+                    <h5>Aldur</h5>
+                    <input type="file" name="idk">
+                </section>
+            </form>
+        </section>
         {% endblock %}
     </body>
 </html>

@@ -287,7 +287,14 @@ audio::-webkit-media-controls-play-button:hover {
     margin: 5%;
 }
 
-.instruments{
+.searchbod{
+    display: grid;
+    grid-template-areas: 
+    "searchbar"
+    "grid-div filter filter";
+}
+
+.filtersect{
     background-color: beige;
     border-color: black;
     border-radius: 5px;

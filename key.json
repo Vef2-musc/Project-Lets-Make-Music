@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "project-lets-make-music",
+  "private_key_id": "c1695e927982888a09b993fea3767be176b6ef16",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDcrNzRE1BfuqLw\no7Ummv8letduTm5Q7ZnZHSjpSVQO+REwiFuz0JbqZnp0XEEQxAw/3BmURFlCxhQH\nx/kE0mv8KuPLuJ8mGR+TXHT4xYZ4eEBTK2g+mgcaKOOgF+Z7J0PfWDlxPJkY/ceH\nq1Ghx1Ciq44vXprT3jeQ2SEOdzr3W8HpIsy0zNW89+9vJOpnorWu3D3PedV5eMtV\n2R3FryZFQgUIvh6WxpCt8HbpbuDhoJ1rGQyzkIdR6S2hfLXfuk7aeRr2UM2lAyEz\nkUawufdJT+PtQmt4ZxruvIGYbANZ4Gd1BISi51JUIzkLXnMvI/+c9i4zuHasm6dZ\nBBfg6rRFAgMBAAECggEADCXOk1/PI9s/+aPkEUz6UKjeJRSs3p2bGNLnG/h3vR9E\nLU9u+jYNqLeddBGurz/ri18QCr5nH4A3PWUVCzPo0ofV5F1fEsIn9Se4ygetlazL\noF3FA5/dAOP8ASXE//CIZvS8rMQbir769eKeFXFwZJQHDrUpgWeRLX3BDm0ifNf2\nZF4AYrzWchWLXk6HRgBd0u+8ZK2GKzjtfDbDFiJgUQzLVuVBQDjiyTI/NKphk3Lo\njO1LcOH23bpi7iis7Qrf3TJ9DMo0HzahUFPo8jPtq6a8Dt/tKMVWTx1G+DIi3VQW\n9/EGyf19q45Zyu7SrXMf0yWnLeIvqG1x5yKsNEKbYQKBgQD2WUQoOXaGBTbKCvwD\noB8lLEYQ+OQby5+iLyFJpsbIxX2scdK5tC2ud9U2LEDsRGvGIxdJo4Wc2GqUyTi7\nZw5W3WBAllRzsp1oEKej6VeL1b+4CD9WR0lPXR4UROBY0X+oC+f2j/w6uyG5VzhC\nTNjcj9jzdSZ/QhCAkCmOl3pU3QKBgQDlUhtIlV0WPukKb+AgVm3jA9wSLNq7ovwL\n59qHxm9evwITx8TOG84ORYy8mBK2oXoZEqfsldgsdy6mPb4eQVZNj7L16UyK2yPb\nyp9eXYtxj2XmYaqLw4rm/5CzwYy56/YxKEEkY77cY9r3aq+ApbUt0WEXZFSYT1W+\nE9FJkc7SiQKBgHT8OyOm9iP6weP8h2TpWyD5/2P77cdNUUdhfjtNmcSqFF4Zx2os\nqCzb90I8jbAlZdC3xU1Q/BhZpXN2gxxreiHCCv1g5kXzIlDS5+ks3Egpf1vTftBo\nFeY8YBZcBvXmtuqEjOlHww3Y49DyHGNPvwQuw2YJ0fhI1TFYRIPUZ2F5AoGBAMr1\nX0ZfQ5LTvQdKus+EDx9zpAvF/RVCi9axrlyqyJjPbrQ5AzrzquxAq+2injVbNygH\nte2TNU8tcHEbhi9a3lopC1fP0rm2d8coTuKC4k5wftxmpj2qpD4MBHLDo5xNdYhO\nO1FMoniGPB7sIkY24uKZRFgiqShgVt+yxHFbhfQZAoGBAKsxI/8U3gCPVZxRWPOz\nDS54J1C8hEiyYYS5a3AkXUvR2Y4f9Izd6XbbsFRufuj8WcXUJbewZoOnrvuhEb8U\naJezahYmRz34VdaOfrIfAeFVXMaA6Y4ZwhGmnfPv7UGAZre0ef6C0R3ztw7r7Ty1\nMPqN4B4frsf7VQZvcJ6p9ecT\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-w084d@project-lets-make-music.iam.gserviceaccount.com",
+  "client_id": "107027990283512162401",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-w084d%40project-lets-make-music.iam.gserviceaccount.com"
+}

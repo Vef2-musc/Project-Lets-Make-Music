@@ -177,9 +177,11 @@ body.loggedin {
     "nafnvefsidu indxlinks";
 }
 .grid-div{
-    display: grid;
+    display: inline-grid;
     grid-template-columns: repeat(5,1fr);
-    grid-column-gap: 2px;
+    grid-column-gap: 5px;
+    justify-items: center;
+    margin: auto;
 }
 .profiles{
     flex-direction: column;
@@ -251,9 +253,8 @@ audio::-webkit-media-controls-play-button:hover {
 .hmpbod{
     display: grid;
     grid-template-areas: 
-    "dropdown-content table-div";
+    "dropdown-content grid-div";
     background: #464348;
-
 }
 .dropdown {
     position: relative;

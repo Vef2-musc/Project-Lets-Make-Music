@@ -6,6 +6,7 @@
 		<meta charset="utf-8">
 		<title>{% block title %}{% endblock %}</title>
 		<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+        <script src="scripts/animation.js"></script>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
@@ -41,11 +42,13 @@
                         <div class="profiles">
                             <img class="mynd" src="{{ url_for('static',filename='mynd1.jpg') }}" alt="{{ item }}">
                             <span class="name">Tst</span>
-                            <span class="audio">Preview:
-                                <audio controls class="audio-controls">
-                                    <source src="{{ url_for('static',filename='song1.mp3') }}" type="audio/mpeg">
-                                </audio>
-                            </span>
+                            <div class="preview-audio">
+                                <span class="preview">Preview:
+                                    <audio controls class="audio-controls">
+                                        <source src="{{ url_for('static',filename='song1.mp3') }}" type="audio/mpeg">
+                                    </audio>
+                                </span>
+                            </div>
                         </div>
                         <tr>
                             <td data-label="Nafn">Tst</td>

@@ -176,7 +176,13 @@ body.loggedin {
     grid-template:
     "nafnvefsidu indxlinks";
 }
-
+.grid-div{
+    display: inline-grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-column-gap: 50px;
+    justify-items: center;
+    margin: auto;
+}
 .profiles{
     flex-direction: column;
     width: 14em;
@@ -199,9 +205,8 @@ body.loggedin {
 }
 .name{
     top: 30%;
+    margin-left: 2em;
     color: #c1c4c8;
-    margin-block-start: 1.5em;
-    margin-inline-start: 3em;
     font-size: xx-large;
     font-weight: bold;
     text-decoration: none;
@@ -247,9 +252,8 @@ audio::-webkit-media-controls-play-button:hover {
 .hmpbod{
     display: grid;
     grid-template-areas: 
-    "dropdown-content table-div";
+    "dropdown-content grid-div extra";
     background: #464348;
-
 }
 .dropdown {
     position: relative;
@@ -281,6 +285,14 @@ audio::-webkit-media-controls-play-button:hover {
 }
 .mapouter {
     margin: 5%;
+}
+
+.instruments{
+    background-color: beige;
+    border-color: black;
+    border-radius: 5px;
+.extra{
+    width: 100px;
 }
 
 @media only screen and (max-width: 720px){

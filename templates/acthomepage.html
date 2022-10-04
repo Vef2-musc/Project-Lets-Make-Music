@@ -27,18 +27,25 @@
                     <a href="{{ url_for('leit') }}" class="menuitem">leit</a><br>
                 </div>
             </div>
-            <div class="box-div">
+            <div class="table-div">
+                <caption>Artist</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Nafn</th>
+                        <th scope="col">Instruments</th>
+                        <th scope="col">Genres</th>
+                    </tr>
+                </thead>
+
                 <tbody>
                     <div class="profiles">
                         <img class="mynd" src="{{ url_for('static',filename='mynd1.jpg') }}" alt="{{ item }}">
-                        <span class="name">Tst</span>
-                        <div class="preview-audio">
-                            <span class="preview">Preview:
-                                <audio controls class="audio-controls">
-                                    <source src="{{ url_for('static',filename='song1.mp3') }}" type="audio/mpeg">
-                                </audio>
-                            </span>
-                        </div>
+                        <span class="name">tst</span>
+                        <span class="audio">Preview:
+                            <audio controls class="audio-controls">
+                                <source src="{{ url_for('static',filename='song1.mp3') }}" type="audio/mpeg">
+                            </audio>
+                        </span>
                     </div>
                 </tbody>
             </div>

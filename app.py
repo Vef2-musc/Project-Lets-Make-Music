@@ -49,6 +49,7 @@ def forsida():
             session['user'] = email
             print('virkar')
             goomba = session["user"]
+            #pull
             return render_template("acthomepage.html",username = session['user'])
         except:#ef þu nærð ekki að logga inn ferð þu aftur inna login siðuna
             print('ekki virkar!!!')
@@ -70,11 +71,10 @@ def signup():
         username = request.form.get("username")
         email = request.form.get("email")
         pwd = request.form.get("password")
-        Inst = request.form.get("instruments")
-        data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst]}
         try:
             user = auth.create_user_with_email_and_password(email,pwd)
-            db.child("User").set(data)
+            db.child("user")
+            db.push(username,email,pwd)
             print("signin complete")
             return render_template("correct.html")
         except:

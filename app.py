@@ -55,16 +55,19 @@ def forsida():
             print('virkar')
             goomba = session["user"]
             #pull
-            return render_template("acthomepage.html",username = session['user'])
+            gamers =[{1:"Goomba",2:"goomba@gmail.com",3:"Trommur"},{1:"Tst",2:"tst@gmail.com",3:"Gítar,Trommur"}]
+            return render_template("acthomepage.html",username = session['user'],  len = len(gamers), gamers = gamers)
         except:#ef þu nærð ekki að logga inn ferð þu aftur inna login siðuna
             print('ekki virkar!!!')
             return render_template("index.html")
 @app.route('/home')
 def home():
+    
+
     if 'user' in session:
         gamers =[{1:"Goomba",2:"goomba@gmail.com",3:"Trommur"},{1:"Tst",2:"tst@gmail.com",3:"Gítar,Trommur"}]
         return render_template('acthomepage.html', username=session['user'], len = len(gamers), gamers = gamers)
-    return redirect(url_for('index'))
+    return redirect(url_for('forsida'))
 
 @app.route("/search")
 def leit():

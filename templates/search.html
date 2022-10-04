@@ -3,12 +3,34 @@
     <head>
         <link rel="shortcut icon" href="https://raw.githubusercontent.com/Vef2-musc/Project-Lets-Make-Music/a8cbc4dca67862dc117ebce7ed90b9308fa8f181/Images/icons8-google-play-music.svg">
     </head>
-    <body>
+    <body class="search">
         {% extends 'base.html' %}
         {% block content %}
         <form class="searchbar">
             <input type="text" name="username" placeholder="Search" id="user" required>
         </form>
+        <div class="grid-div">
+            <tbody>
+                {%for i in range(10)%}
+
+
+                <div class="profiles">
+                    <img class="mynd" src="{{ url_for('static',filename='mynd1.jpg') }}" alt="{{ item }}">
+                    <span class="name">Tst</span>
+                    <span class="email">tst@gmail.com</span>
+                    <span class="instrument">Trommur</span>
+                    <div class="preview-audio">
+                        <span class="preview">Preview:
+                            <audio controls class="audio-controls">
+                                <source src="{{ url_for('static',filename='song1.mp3') }}" type="audio/mpeg">
+                            </audio>
+                        </span>
+                    </div>
+                    
+                </div>
+                {%endfor%}
+            </tbody>
+        </div>
         <form class="filter">
             <section class="instruments">
                 <h5>Hljóðfæri</h5>

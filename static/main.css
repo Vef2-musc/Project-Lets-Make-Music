@@ -178,8 +178,8 @@ body.loggedin {
 }
 .grid-div{
     display: inline-grid;
-    grid-template-columns: repeat(5,1fr);
-    grid-column-gap: 5px;
+    grid-template-columns: repeat(4,1fr);
+    grid-column-gap: 50px;
     justify-items: center;
     margin: auto;
 }
@@ -253,7 +253,7 @@ audio::-webkit-media-controls-play-button:hover {
 .hmpbod{
     display: grid;
     grid-template-areas: 
-    "dropdown-content grid-div";
+    "dropdown-content grid-div extra";
     background: #464348;
 }
 .dropdown {
@@ -286,6 +286,10 @@ audio::-webkit-media-controls-play-button:hover {
 }
 .mapouter {
     margin: 5%;
+}
+
+.extra{
+    width: 100px;
 }
 
 @media only screen and (max-width: 720px){

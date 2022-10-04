@@ -27,7 +27,7 @@ auth = firebase.auth()
 db = firebase.database()
 app.secret_key = 'admin-69420'
 
-#data={"name":"palli","password":"abc123","music":["trommur","flautur"]}
+#data={"name":"gusti","password":"abc123","music":["trommur","flautur"]}
 #db.push(data)
 
 #-------------
@@ -70,10 +70,11 @@ def signup():
         username = request.form.get("username")
         email = request.form.get("email")
         pwd = request.form.get("password")
+        Inst = request.form.get("instruments")
+        data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst]}
         try:
             user = auth.create_user_with_email_and_password(email,pwd)
-            db.child("user")
-            db.push(username,email,pwd)
+            db.child("User").set(data)
             print("signin complete")
             return render_template("correct.html")
         except:

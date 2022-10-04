@@ -179,8 +179,8 @@ body.loggedin {
 
 .profiles{
     flex-direction: column;
-    width: 30em;
-    height: 40em;
+    width: 14em;
+    height: 25em;
     margin: 1em;
     border: 1px solid black;
     border-radius: 2em;
@@ -199,6 +199,7 @@ body.loggedin {
 }
 .name{
     position: absolute;
+    top: 30%;
     color: #c1c4c8;
     margin-block-start: 1.5em;
     margin-inline-start: 3em;
@@ -208,26 +209,31 @@ body.loggedin {
 }
 .preview-audio{
     align-content: center;
-    top: 50%;
+    top: 30%;
 }
 .preview{
+    margin-left: 10px;
     position: absolute;
     color: #c1c4c8;
     font-size: larger;
     font-weight: bold;
     text-decoration: none;
 }
+.audio-controls{
+    width: 100px;
+    height: 15px;
+}
 audio
 {
-transition:all 0.5s linear;
-box-shadow: 2px 2px 4px 0px #e21de2;
-border-radius:2em ;
+    transition:all 0.5s linear;
+    box-shadow: 2px 2px 4px 0px #e21de2;
+    border-radius:2em ;
 }
 audio:hover, audio:focus, audio:active
 {
-box-shadow: 15px 15px 20px black;
-transform: scale(1.05);
-border-radius: 2em;
+    box-shadow: 15px 15px 20px black;
+    transform: scale(1.05);
+    border-radius: 2em;
 }
 audio::-webkit-media-controls-panel {
     background:  linear-gradient(180deg, rgba(79,84,180,1) 0%, rgba(162,56,190,1) 100%);

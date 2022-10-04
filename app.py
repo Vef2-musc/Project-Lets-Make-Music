@@ -60,12 +60,10 @@ def forsida():
             return render_template("index.html")
 @app.route('/home')
 def home():
-    
-
     if 'user' in session:
         gamers =[{1:"Goomba",2:"goomba@gmail.com",3:"Trommur"},{1:"Tst",2:"tst@gmail.com",3:"Gítar,Trommur"}]
         return render_template('acthomepage.html', username=session['user'], len = len(gamers), gamers = gamers)
-    return redirect(url_for('forsida'))
+    return redirect(url_for('index'))
 
 @app.route("/search")
 def leit():

@@ -6,7 +6,20 @@
     <body>
         {% extends 'base.html' %}
         {% block content %}
-
+        <form class="searchbar">
+            <input type="text" name="username" placeholder="Search" id="user" required>
+        </form>
+        <form class="filter">
+            <section class="instruments">
+                <h5>Hljóðfæri</h5>
+                <input type="checkbox" name="piano">
+                <label for="piano">Píanó</label><br><br>
+                <input type="checkbox" name="drums">
+                <label for="drums">Trommur</label><br><br>
+                <input type="checkbox" name="vocals">
+                <label for="vocals">Söngur</label><br><br>
+            </section>
+        </form>
         {% endblock %}
     </body>
 </html>

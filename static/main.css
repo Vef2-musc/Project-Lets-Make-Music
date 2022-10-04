@@ -288,6 +288,12 @@ audio::-webkit-media-controls-play-button:hover {
     margin: 5%;
 }
 
+.instruments{
+    background-color: beige;
+    border-color: black;
+    border-radius: 5px;
+}
+
 @media only screen and (max-width: 720px){
     .dropdown {
         position: relative;

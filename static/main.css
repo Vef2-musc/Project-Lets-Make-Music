@@ -91,12 +91,18 @@ body {
     height: 60px;
     width: 100%;
     border: 0;
+    justify-content: space-between;
 }
 .navtop div {
     display: flex;
     margin: 0 auto;
     width: 100%;
     height: 100%;
+    justify-content: space-between;
+}
+.navtop span {
+    display: flex;
+    align-content: center;
 }
 .navtop div h1, .navtop div a {
     display: inline-flex;

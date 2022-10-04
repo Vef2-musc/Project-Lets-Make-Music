@@ -176,7 +176,11 @@ body.loggedin {
     grid-template:
     "nafnvefsidu indxlinks";
 }
-
+.tables-div{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-column-gap: 2px;
+}
 .profiles{
     flex-direction: column;
     width: 14em;
@@ -200,9 +204,8 @@ body.loggedin {
 .name{
     position: absolute;
     top: 30%;
+    margin-left: 2em;
     color: #c1c4c8;
-    margin-block-start: 1.5em;
-    margin-inline-start: 3em;
     font-size: xx-large;
     font-weight: bold;
     text-decoration: none;

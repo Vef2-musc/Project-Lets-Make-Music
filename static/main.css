@@ -150,7 +150,7 @@ body.loggedin {
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
     margin: 25px 0;
     padding: 25px;
-  background-color: #fff;
+    background-color: #fff;
 }
 .content > p table td, .content > div table td {
   padding: 5px;
@@ -189,7 +189,7 @@ body.loggedin {
     justify-items: center;
     margin: auto;
 }
-.profiles{
+.profiles {
     flex-direction: column;
     width: 14em;
     height: 25em;
@@ -198,6 +198,26 @@ body.loggedin {
     border-radius: 2em;
     background: #232223;
 
+}
+.profiles label {
+    display: flex;
+    position: relative;
+    color: #c1c4c8;
+    border: #c1c4c8 solid 2px;
+    border-radius: 50%;
+    width:2em;
+    height: 2em;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    top: 15%;
+    left: 80%;
+    cursor: pointer;
+}
+.profiles label :focus{
+    color: #ab50c6;
+    border: #ab50c6 solid 2px;
+    border-radius: 50%;
 }
 .mynd {
     display: inline-block;

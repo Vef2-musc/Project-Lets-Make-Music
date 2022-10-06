@@ -5,6 +5,9 @@ import email
 import os
 from plistlib import UID
 import pyrebase
+import firebase_admin
+from firebase_admin import credentials, auth
+from firebase_admin.auth import get_user
 from urllib import request
 from flask import Flask, render_template, request, redirect, url_for, session
 import re
@@ -27,11 +30,12 @@ firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
 db = firebase.database()
 app.secret_key = 'admin-69420'
-
+admin = firebase_admin
 #data={"name":"gusti","password":"abc123","music":["trommur","flautur"]}
 #db.push(data)
-
-
+users = db.child("User").get()
+for users in users.each():
+    print(users.key())
 
 #-------------
 
@@ -43,6 +47,8 @@ def forsida():
     if('user' in session):
         #print("virkar..")
         #return render_template('homepage.html')
+        #-----
+        
         gamers =[{1:"Goomba",2:"goomba@gmail.com",3:"Trommur"},{1:"Tst",2:"tst@gmail.com",3:"Gítar,Trommur"}]
         return render_template('acthomepage.html', username=session['user'],  len = len(gamers), gamers = gamers)
     elif request.method == 'POST':
@@ -52,6 +58,8 @@ def forsida():
             user = auth.sign_in_with_email_and_password(email,password)
             session['user'] = email
             print('virkar')
+            
+            #print(user['localId'])
             goomba = session["user"]
             #pull
             gamers =[{1:"Goomba",2:"goomba@gmail.com",3:"Trommur"},{1:"Tst",2:"tst@gmail.com",3:"Gítar,Trommur"}]
@@ -64,6 +72,7 @@ def home():
     
 
     if 'user' in session:
+        
         gamers =[{1:"Goomba",2:"goomba@gmail.com",3:"Trommur"},{1:"Tst",2:"tst@gmail.com",3:"Gítar,Trommur"}]
         return render_template('acthomepage.html', username=session['user'], len = len(gamers), gamers = gamers)
     return redirect(url_for('forsida'))

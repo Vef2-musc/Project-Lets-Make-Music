@@ -189,6 +189,11 @@ body.loggedin {
     justify-items: center;
     margin: auto;
 }
+.grid-div :hover{
+    box-shadow: 15px 15px 20px black;
+    transform: scale(1.05);
+    border-radius: 2em;
+}
 .profiles {
     flex-direction: column;
     width: 14em;
@@ -197,7 +202,9 @@ body.loggedin {
     border: 1px solid black;
     border-radius: 2em;
     background: #232223;
-
+    transition:all 0.5s linear;
+    box-shadow: 2px 2px 4px 0px black;
+    border-radius:2em ;
 }
 .profiles label {
     display: flex;
@@ -238,7 +245,7 @@ body.loggedin {
     height: 10em;
     padding: 8px;
     border: 1px solid black;   
-    border-radius: 0.5em; 
+    border-radius: 2em; 
     background: linear-gradient(180deg, rgba(79,84,180,1) 0%, rgba(162,56,190,1) 100%); 
     margin: 2em;
 }

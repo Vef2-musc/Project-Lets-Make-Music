@@ -189,6 +189,11 @@ body.loggedin {
     justify-items: center;
     margin: auto;
 }
+.grid-div :hover{
+    box-shadow: 15px 15px 20px black;
+    transform: scale(1.05);
+    border-radius: 2em;
+}
 .profiles {
     flex-direction: column;
     width: 14em;
@@ -197,27 +202,42 @@ body.loggedin {
     border: 1px solid black;
     border-radius: 2em;
     background: #232223;
-
+    transition:all 0.5s linear;
+    box-shadow: 2px 2px 4px 0px black;
+    border-radius:2em ;
 }
 .profiles label {
     display: flex;
     position: relative;
     color: #c1c4c8;
-    border: #c1c4c8 solid 2px;
-    border-radius: 50%;
-    width:2em;
-    height: 2em;
+    width: 3em;
+    height: 3em;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    top: 15%;
-    left: 80%;
-    cursor: pointer;
+    top: 12.5%;
+    left: 75%;
 }
-.profiles label :focus{
-    color: #ab50c6;
-    border: #ab50c6 solid 2px;
+.profiles button{
+    color: #c1c4c8;
+    background: none;
     border-radius: 50%;
+    border: #c1c4c8 solid 2px;
+    cursor:pointer;
+}
+.profiles button:hover{
+    color: #1de04e;
+    border: #1de04e solid 2px;
+    animation: bouncy 1s ease infinite;
+}
+@keyframes bouncy {
+	0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+	40% {transform: translateY(-20px);}
+	60% {transform: translateY(-10px);}
+}
+.profiles button:active {
+    color: #7f54b2;
+    border: #7f54b2 solid 2px;
 }
 .mynd {
     display: inline-block;
@@ -225,7 +245,7 @@ body.loggedin {
     height: 10em;
     padding: 8px;
     border: 1px solid black;   
-    border-radius: 0.5em; 
+    border-radius: 2em; 
     background: linear-gradient(180deg, rgba(79,84,180,1) 0%, rgba(162,56,190,1) 100%); 
     margin: 2em;
 }

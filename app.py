@@ -93,10 +93,10 @@ def signup():
         try:
             user = auth.create_user_with_email_and_password(email,pwd)
             db.child("User").push(data)
-            print("signin complete")
+            print("signup complete")
             return render_template("correct.html")
         except:
-            print('signin failed :(')
+            print('signup failed :(')
             return render_template("incorrect.html")
     return render_template("signup.html")
 @app.route("/back")

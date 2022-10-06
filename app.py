@@ -4,6 +4,7 @@ from distutils.command.config import config
 import email
 import os
 from plistlib import UID
+from tkinter import messagebox
 import pyrebase
 import firebase_admin
 from firebase_admin import credentials, auth
@@ -31,11 +32,12 @@ auth = firebase.auth()
 db = firebase.database()
 app.secret_key = 'admin-69420'
 admin = firebase_admin
+#-----------
 #data={"name":"gusti","password":"abc123","music":["trommur","flautur"]}
 #db.push(data)
-users = db.child("User").get()
-for users in users.each():
-    print(users.key())
+#users = db.child("User").get()
+#for users in users.each():
+    #print(users.val())
 
 #-------------
 
@@ -62,9 +64,10 @@ def forsida():
             #print(user['localId'])
             goomba = session["user"]
             #pull
-            gamers =[{1:"Goomba",2:"goomba@gmail.com",3:"Trommur"},{1:"Tst",2:"tst@gmail.com",3:"Gítar,Trommur"}]
+            gamers =[{1:"Goomba",2:"goomba@gmail.com",3:"Trommur"},{1:"Tst",2:"tst@gmail.com",3:"Gítar,Trommur"},users]
             return render_template("acthomepage.html",username = session['user'],  len = len(gamers), gamers = gamers)
         except:#ef þu nærð ekki að logga inn ferð þu aftur inna login siðuna
+            messagebox("password vitlaust")
             print('ekki virkar!!!')
             return render_template("index.html")
 @app.route('/home')

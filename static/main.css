@@ -228,6 +228,7 @@ body.loggedin {
 .profiles button:hover{
     color: #1de04e;
     border: #1de04e solid 2px;
+    border-radius: 50%;
     animation: bouncy 1s ease infinite;
 }
 @keyframes bouncy {
@@ -238,6 +239,7 @@ body.loggedin {
 .profiles button:active {
     color: #7f54b2;
     border: #7f54b2 solid 2px;
+    border-radius: 50%;
 }
 .mynd {
     display: inline-block;

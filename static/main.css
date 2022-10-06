@@ -221,8 +221,14 @@ body.loggedin {
 .profiles button:hover{
     color: #1de04e;
     border: #1de04e solid 2px;
+    animation: bouncy 1s ease infinite;
 }
-.profiles .button:active {
+@keyframes bouncy {
+	0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+	40% {transform: translateY(-20px);}
+	60% {transform: translateY(-10px);}
+}
+.profiles button:active {
     color: #7f54b2;
     border: #7f54b2 solid 2px;
 }

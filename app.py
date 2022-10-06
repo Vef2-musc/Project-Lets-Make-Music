@@ -35,9 +35,14 @@ admin = firebase_admin
 #-----------
 #data={"name":"gusti","password":"abc123","music":["trommur","flautur"]}
 #db.push(data)
-#users = db.child("User").get()
-#for users in users.each():
+users = db.child("User").get()
+notend = []
+for users in users.each():
+
     #print(users.val())
+    notend.append(users.val())
+
+print(notend[1])
 
 #-------------
 
@@ -50,8 +55,12 @@ def forsida():
         #print("virkar..")
         #return render_template('homepage.html')
         #-----
-        
-        gamers =[{1:"Goomba",2:"goomba@gmail.com",3:"Trommur"},{1:"Tst",2:"tst@gmail.com",3:"Gítar,Trommur"}]
+        users = db.child("User").get()
+        gamers = []
+        for users in users.each():
+
+            #print(users.val())
+            gamers.append(users.val())
         return render_template('acthomepage.html', username=session['user'],  len = len(gamers), gamers = gamers)
     elif request.method == 'POST':
         email = request.form.get('email')
@@ -64,7 +73,14 @@ def forsida():
             #print(user['localId'])
             goomba = session["user"]
             #pull
-            gamers =[{1:"Goomba",2:"goomba@gmail.com",3:"Trommur"},{1:"Tst",2:"tst@gmail.com",3:"Gítar,Trommur"},users]
+            users = db.child("User").get()
+            gamers = []
+            for users in users.each():
+
+                #print(users.val())
+                gamers.append(users.val())
+                
+                
             return render_template("acthomepage.html",username = session['user'],  len = len(gamers), gamers = gamers)
         except:#ef þu nærð ekki að logga inn ferð þu aftur inna login siðuna
             messagebox("password vitlaust")
@@ -95,11 +111,12 @@ def signup():
         data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst]}
         try:
             user = auth.create_user_with_email_and_password(email,pwd)
+            print(data)
             db.child("User").push(data)
-            print("signin complete")
+            print("signup complete")
             return render_template("correct.html")
         except:
-            print('signin failed :(')
+            print('signup failed :(')
             return render_template("incorrect.html")
     return render_template("signup.html")
 @app.route("/back")

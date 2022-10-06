@@ -34,8 +34,13 @@ admin = firebase_admin
 #data={"name":"gusti","password":"abc123","music":["trommur","flautur"]}
 #db.push(data)
 users = db.child("User").get()
+notend = []
 for users in users.each():
-    print(users.key())
+
+    #print(users.val())
+    notend.append(users.val())
+
+print(notend[1])
 
 #-------------
 
@@ -48,8 +53,12 @@ def forsida():
         #print("virkar..")
         #return render_template('homepage.html')
         #-----
-        
-        gamers =[{1:"Goomba",2:"goomba@gmail.com",3:"Trommur"},{1:"Tst",2:"tst@gmail.com",3:"Gítar,Trommur"}]
+        users = db.child("User").get()
+        gamers = []
+        for users in users.each():
+
+            #print(users.val())
+            gamers.append(users.val())
         return render_template('acthomepage.html', username=session['user'],  len = len(gamers), gamers = gamers)
     elif request.method == 'POST':
         email = request.form.get('email')
@@ -62,7 +71,14 @@ def forsida():
             #print(user['localId'])
             goomba = session["user"]
             #pull
-            gamers =[{1:"Goomba",2:"goomba@gmail.com",3:"Trommur"},{1:"Tst",2:"tst@gmail.com",3:"Gítar,Trommur"}]
+            users = db.child("User").get()
+            gamers = []
+            for users in users.each():
+
+                #print(users.val())
+                gamers.append(users.val())
+                
+                
             return render_template("acthomepage.html",username = session['user'],  len = len(gamers), gamers = gamers)
         except:#ef þu nærð ekki að logga inn ferð þu aftur inna login siðuna
             print('ekki virkar!!!')

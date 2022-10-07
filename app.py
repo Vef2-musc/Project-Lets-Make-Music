@@ -42,7 +42,7 @@ for users in users.each():
     #print(users.val())
     notend.append(users.val())
 
-print(notend[1])
+#print(notend[1])
 
 #-------------
 

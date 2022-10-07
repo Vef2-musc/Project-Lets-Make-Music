@@ -4,6 +4,7 @@ from distutils.command.config import config
 import email
 import os
 from plistlib import UID
+from tkinter import messagebox
 import pyrebase
 import firebase_admin
 from firebase_admin import credentials, auth
@@ -31,11 +32,17 @@ auth = firebase.auth()
 db = firebase.database()
 app.secret_key = 'admin-69420'
 admin = firebase_admin
+#-----------
 #data={"name":"gusti","password":"abc123","music":["trommur","flautur"]}
 #db.push(data)
 users = db.child("User").get()
+notend = []
 for users in users.each():
-    print(users.key())
+
+    #print(users.val())
+    notend.append(users.val())
+
+#print(notend[1])
 
 #-------------
 
@@ -48,8 +55,12 @@ def forsida():
         #print("virkar..")
         #return render_template('homepage.html')
         #-----
-        
-        gamers =[{1:"Goomba",2:"goomba@gmail.com",3:"Trommur"},{1:"Tst",2:"tst@gmail.com",3:"Gítar,Trommur"}]
+        users = db.child("User").get()
+        gamers = []
+        for users in users.each():
+
+            #print(users.val())
+            gamers.append(users.val())
         return render_template('acthomepage.html', username=session['user'],  len = len(gamers), gamers = gamers)
     elif request.method == 'POST':
         email = request.form.get('email')
@@ -62,9 +73,17 @@ def forsida():
             #print(user['localId'])
             goomba = session["user"]
             #pull
-            gamers =[{1:"Goomba",2:"goomba@gmail.com",3:"Trommur"},{1:"Tst",2:"tst@gmail.com",3:"Gítar,Trommur"}]
+            users = db.child("User").get()
+            gamers = []
+            for users in users.each():
+
+                #print(users.val())
+                gamers.append(users.val())
+                
+                
             return render_template("acthomepage.html",username = session['user'],  len = len(gamers), gamers = gamers)
         except:#ef þu nærð ekki að logga inn ferð þu aftur inna login siðuna
+            messagebox("password vitlaust")
             print('ekki virkar!!!')
             return render_template("index.html")
 @app.route('/home')
@@ -92,6 +111,7 @@ def signup():
         data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst]}
         try:
             user = auth.create_user_with_email_and_password(email,pwd)
+            print(data)
             db.child("User").push(data)
             print("signup complete")
             return render_template("correct.html")

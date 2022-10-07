@@ -83,7 +83,7 @@ def forsida():
                 
             return render_template("acthomepage.html",username = session['user'],  len = len(gamers), gamers = gamers)
         except:#ef þu nærð ekki að logga inn ferð þu aftur inna login siðuna
-            messagebox("password vitlaust")
+            #messagebox("password vitlaust")
             print('ekki virkar!!!')
             return render_template("index.html")
 @app.route('/home')
@@ -92,14 +92,26 @@ def home():
 
     if 'user' in session:
         
-        gamers =[{1:"Goomba",2:"goomba@gmail.com",3:"Trommur"},{1:"Tst",2:"tst@gmail.com",3:"Gítar,Trommur"}]
+        users = db.child("User").get()
+        gamers = []
+        for users in users.each():
+
+            #print(users.val())
+            gamers.append(users.val())
         return render_template('acthomepage.html', username=session['user'], len = len(gamers), gamers = gamers)
     return redirect(url_for('forsida'))
 
 @app.route("/search")
 def leit():
     if 'user' in session:
-        return render_template('search.html', username=session['user'])
+        users = db.child("User").get()
+        gamers = []
+        for users in users.each():
+
+                #print(users.val())
+                gamers.append(users.val())
+        return render_template('search.html', username=session['user'],len = len(gamers), gamers = gamers)
+        
     return render_template("search.html")
 @app.route("/signup", methods=['POST','GET'])
 def signup():

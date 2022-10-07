@@ -12,12 +12,11 @@
             </form>
             <div class="grid-div">
                 <tbody>
-                    {%for i in range(10)%}
+                    {%for i in range(0, len)%}
                     <div class="profiles">
                         <img class="mynd" src="{{ url_for('static',filename='mynd1.jpg') }}" alt="{{ item }}">
-                        <span class="name">Tst</span>
-                        <span class="email">tst@gmail.com</span>
-                        <span class="instrument">Trommur</span>
+                        <span class="name">{{gamers[i]["name"]}}</span>
+                        <span class="instrument">{{gamers[i]["instrument"]}}</span>
                         <div class="preview-audio">
                             <span class="preview">Preview:
                                 <audio controls class="audio-controls">

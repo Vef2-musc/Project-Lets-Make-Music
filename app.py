@@ -92,14 +92,26 @@ def home():
 
     if 'user' in session:
         
-        gamers =[{1:"Goomba",2:"goomba@gmail.com",3:"Trommur"},{1:"Tst",2:"tst@gmail.com",3:"Gítar,Trommur"}]
+        users = db.child("User").get()
+        gamers = []
+        for users in users.each():
+
+            #print(users.val())
+            gamers.append(users.val())
         return render_template('acthomepage.html', username=session['user'], len = len(gamers), gamers = gamers)
     return redirect(url_for('forsida'))
 
 @app.route("/search")
 def leit():
     if 'user' in session:
-        return render_template('search.html', username=session['user'])
+        users = db.child("User").get()
+        gamers = []
+        for users in users.each():
+
+                #print(users.val())
+                gamers.append(users.val())
+        return render_template('search.html', username=session['user'],len = len(gamers), gamers = gamers)
+        
     return render_template("search.html")
 @app.route("/signup", methods=['POST','GET'])
 def signup():
@@ -108,6 +120,7 @@ def signup():
         email = request.form.get("email")
         pwd = request.form.get("password")
         Inst = request.form.get("instruments")
+        print(Inst)
         data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst]}
         try:
             user = auth.create_user_with_email_and_password(email,pwd)

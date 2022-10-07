@@ -273,11 +273,22 @@ body.loggedin {
     display: inline-block;
     width: 150px;
     margin-left: 2em;
-    margin-right: 4em;
+
     overflow: auto;
     text-align: center;
-
 }
+.div-name :hover{
+    animation: autoscroll 2s ease infinite;
+}
+@keyframes autoscroll{
+    0% {
+      margin-right: 0%;
+      
+    }
+    100%{
+      margin-right: 100%;
+    }
+  }
 .div-name .name{
     top: 30%;
     text-align: center;

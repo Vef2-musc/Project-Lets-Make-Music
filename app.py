@@ -108,6 +108,7 @@ def signup():
         email = request.form.get("email")
         pwd = request.form.get("password")
         Inst = request.form.get("instruments")
+        print(Inst)
         data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst]}
         try:
             user = auth.create_user_with_email_and_password(email,pwd)

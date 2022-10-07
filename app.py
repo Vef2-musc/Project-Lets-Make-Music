@@ -120,8 +120,11 @@ def signup():
         email = request.form.get("email")
         pwd = request.form.get("password")
         Inst = request.form.get("instruments")
+        Inst1 = request.form.get("instruments1")
+        Inst2 = request.form.get("instruments2")
+        #InstLST =[Inst,Inst1,Inst2]
         print(Inst)
-        data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst]}
+        data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst,Inst1,Inst2]}
         try:
             user = auth.create_user_with_email_and_password(email,pwd)
             print(data)

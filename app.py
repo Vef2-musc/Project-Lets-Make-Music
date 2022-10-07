@@ -13,7 +13,7 @@ from urllib import request
 from flask import Flask, render_template, request, redirect, url_for, session
 import re
 
-
+print("hello")
 app=Flask(__name__,template_folder='templates')
 
 #FIREBASE

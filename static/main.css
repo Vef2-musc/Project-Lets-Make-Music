@@ -5,6 +5,24 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+/* Breidd */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 0px;
+}
+  
+/* Barið */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px none;
+    border-radius: 10px;
+}
+  
+/* Takkinn sjálfur */
+::-webkit-scrollbar-thumb {
+    background: #5c5c5c;
+    border-radius: 10px;
+}
+
 body {
     background-color: #191919;
     margin: 0;
@@ -208,15 +226,15 @@ body.loggedin {
 }
 .profiles label {
     display: flex;
-    position: relative;
+    position: absolute;
     color: #c1c4c8;
     width: 3em;
     height: 3em;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    top: 12.5%;
-    left: 75%;
+    margin-top: 75px;
+    margin-left: 160px;
 }
 .profiles button{
     color: #c1c4c8;
@@ -251,13 +269,36 @@ body.loggedin {
     background: linear-gradient(180deg, rgba(79,84,180,1) 0%, rgba(162,56,190,1) 100%); 
     margin: 2em;
 }
-.name{
-    top: 30%;
+.div-name{
+    display: inline-block;
+    width: 150px;
     margin-left: 2em;
+
+    overflow: auto;
+    text-align: center;
+}
+.div-name :hover{
+    animation: autoscroll 2s ease infinite;
+}
+@keyframes autoscroll{
+    0% {
+      margin-right: 0%;
+      
+    }
+    100%{
+      margin-right: 100%;
+    }
+  }
+.div-name .name{
+    top: 30%;
+    text-align: center;
     color: #c1c4c8;
-    font-size: xx-large;
+    font-size: x-large;
     font-weight: bold;
     text-decoration: none;
+    height: 10px;
+    width: 2px;
+    white-space: nowrap;
 }
 .preview-audio{
     align-content: center;

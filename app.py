@@ -120,6 +120,9 @@ def signup():
         email = request.form.get("email")
         pwd = request.form.get("password")
         Inst = request.form.get("instruments")
+        print(username)
+        print(email)
+        print(pwd)
         Inst1 = request.form.get("instruments1")
         Inst2 = request.form.get("instruments2")
         #InstLST =[Inst,Inst1,Inst2]

@@ -83,7 +83,7 @@ def forsida():
                 
             return render_template("acthomepage.html",username = session['user'],  len = len(gamers), gamers = gamers)
         except:#ef þu nærð ekki að logga inn ferð þu aftur inna login siðuna
-            messagebox("password vitlaust")
+            #messagebox("password vitlaust")
             print('ekki virkar!!!')
             return render_template("index.html")
 @app.route('/home')

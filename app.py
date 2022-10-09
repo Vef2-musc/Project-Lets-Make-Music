@@ -127,6 +127,8 @@ def signup():
         Inst2 = request.form.get("instruments2")
         #InstLST =[Inst,Inst1,Inst2]
         print(Inst)
+        print(Inst1)
+        print(Inst2)
         data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst,Inst1,Inst2]}
         try:
             user = auth.create_user_with_email_and_password(email,pwd)

@@ -12,7 +12,7 @@
             </form>
             <div class="grid-div">
                 <tbody>
-                    {%for i in range(0, len)%}
+                    {% for i in range(0, len) %}
                     <div class="profiles">
                         <img class="mynd" src="{{ url_for('static',filename='mynd1.jpg') }}" alt="{{ item }}">
                         <span class="name">{{gamers[i]["name"]}}</span>
@@ -28,21 +28,18 @@
                     {%endfor%}
                 </tbody>
             </div>
-            <form class="filter">
+            <form action="{ url_for(leit)}" class="filter" method="post">
                 <section class="filtersect">
                     <h5>Hljóðfæri</h5>
-                    <input type="checkbox" name="piano">
-                    <label for="piano">Píanó</label><br><br>
-                    <input type="checkbox" name="drums">
-                    <label for="drums">Trommur</label><br><br>
-                    <input type="checkbox" name="vocals">
-                    <label for="vocals">Söngur</label><br><br>
-                </section><br>
-                <section class="filtersect">
-                    <h5>Aldur</h5>
-                    <input type="number" name="aldur">
+                    <input type="checkbox" id="vehicle1" name="instruments" value="trommur">
+  					<label for="vehicle1"> trommur</label><br>
+  					<input type="checkbox" id="vehicle2" name="instruments1" value="piano">
+  					<label for="vehicle2"> Piano</label><br>
+  					<input type="checkbox" id="vehicle3" name="instruments2" value="flauta">
+  					<label for="vehicle3"> flautu</label><br><br>
                 </section>
             </form>
+            <input type="submit" value="Submit">
         </section>
         {% endblock %}
     </body>

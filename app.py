@@ -105,16 +105,17 @@ def home():
 def leit():
     if 'user' in session:
         if request.method == 'POST':
+            
             Inst = request.form.get("instruments")
             Inst1 = request.form.get("instruments1")
             Inst2 = request.form.get("instruments2")
             instruments = request.form['instrument']
-            users = db.child("User").get()
-            gamers = []
-            for users in users.each():
-                #print(users.val())
-                gamers.append(users.val())
-            return render_template('search.html', username=session['user'],len = len(gamers), gamers = gamers)
+        users = db.child("User").get()
+        gamers = []
+        for users in users.each():
+            #print(users.val())
+            gamers.append(users.val())
+        return render_template('search.html', username=session['user'],len = len(gamers), gamers = gamers)
             
     return render_template("search.html")
 @app.route("/signup", methods=['POST','GET'])

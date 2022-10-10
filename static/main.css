@@ -355,7 +355,9 @@ audio::-webkit-media-controls-play-button:hover {
 .borg {
     display: none;
 }
-
+.instrument{
+    color: red;
+}
 .dropdown-content {
   display: block;
   background: linear-gradient(180deg, rgba(42,42,42,1) 0%, rgba(47,47,47,1) 100%);

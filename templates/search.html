@@ -7,8 +7,8 @@
         {% extends 'base.html' %}
         {% block content %}
         <section class="searchbod">
-            <form class="searchbar">
-                <input type="text" name="username" placeholder="Search" id="user" required>
+            <form class="searchbar" method="Post">
+                <input type="text" name="Search" placeholder="Search" id="user"><input type="submit" value="Submit">
             </form>
             <div class="grid-div">
                 <tbody>
@@ -16,7 +16,7 @@
                     <div class="profiles">
                         <img class="mynd" src="{{ url_for('static',filename='mynd1.jpg') }}" alt="{{ item }}">
                         <span class="name">{{gamers[i]["name"]}}</span>
-                        <span class="instrument">{{gamers[i]["Instrument"[0:]]}}</span>
+                        <span class="instrument">{{gamers[i]["Instrument"]}}</span>
                         <div class="preview-audio">
                             <span class="preview">Preview:
                                 <audio controls class="audio-controls">
@@ -28,18 +28,18 @@
                     {%endfor%}
                 </tbody>
             </div>
-            <form action="{ url_for(leit)}" class="filter" method="post">
-                <section class="filtersect">
+            <section class="filtersect">
+                <form class="filter" method="post">
                     <h5>Hljóðfæri</h5>
                     <input type="checkbox" id="vehicle1" name="instruments" value="trommur">
-  					<label for="vehicle1"> trommur</label><br>
-  					<input type="checkbox" id="vehicle2" name="instruments1" value="piano">
-  					<label for="vehicle2"> Piano</label><br>
-  					<input type="checkbox" id="vehicle3" name="instruments2" value="flauta">
-  					<label for="vehicle3"> flautu</label><br><br>
-                </section>
-            </form>
-            <input type="submit" value="Submit">
+                    <label for="vehicle1"> trommur</label><br>
+                    <input type="checkbox" id="vehicle2" name="instruments1" value="piano">
+                    <label for="vehicle2"> Piano</label><br>
+                    <input type="checkbox" id="vehicle3" name="instruments2" value="flauta">
+                    <label for="vehicle3"> flautu</label><br><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </section>
         </section>
         {% endblock %}
     </body>

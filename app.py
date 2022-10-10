@@ -5,6 +5,7 @@ import email
 import os
 from plistlib import UID
 from tkinter import messagebox
+from unicodedata import name
 import pyrebase
 import firebase_admin
 from firebase_admin import credentials, auth
@@ -88,10 +89,7 @@ def forsida():
             return render_template("index.html")
 @app.route('/home')
 def home():
-    
-
     if 'user' in session:
-        
         users = db.child("User").get()
         gamers = []
         for users in users.each():
@@ -105,16 +103,25 @@ def home():
 def leit():
     if 'user' in session:
         if request.method == 'POST':
-            
+            recname = str(request.form.get("Search"))
             Inst = request.form.get("instruments")
             Inst1 = request.form.get("instruments1")
             Inst2 = request.form.get("instruments2")
-            instruments = request.form['instrument']
+            print(Inst)
+            print(Inst1)
+            print(Inst2)
+            print(recname)
         users = db.child("User").get()
+        instrumm = db.child("User").child("Instrument").get()
         gamers = []
         for users in users.each():
             #print(users.val())
-            gamers.append(users.val())
+            if recname == "":
+                gamers.append(users.val())
+            elif users.val()["name"] == recname:
+                gamers.append(users.val())
+            else:
+                pass
         return render_template('search.html', username=session['user'],len = len(gamers), gamers = gamers)
             
     return render_template("search.html")

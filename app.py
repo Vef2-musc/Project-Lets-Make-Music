@@ -113,10 +113,10 @@ def leit():
             musc = str(request.form.get("instruments"))
             musc1 = str(request.form.get("instruments1"))
             musc2 = str(request.form.get("instruments2"))
-            print(recname)
-            print(musc)
-            print(musc1)
-            print(musc2)
+            musc3 = str(request.form.get("instruments3"))
+            musc4 = str(request.form.get("instruments4"))
+            musc5 = str(request.form.get("instruments5"))
+            musc6 = str(request.form.get("instruments6"))
         users = db.child("User").get()
         gamers = []
         for users in users.each():
@@ -126,7 +126,7 @@ def leit():
                     gamers.append(users.val())
                 elif users.val()["name"] == recname:
                     gamers.append(users.val())
-                elif musc != "None" or musc1 != "None" or musc2 != "None":
+                elif musc != "None" or musc1 != "None" or musc2 != "None" or musc3 != "None" or musc4 != "None" or musc5 != "None" or musc6 != "None":
                     for x in users.val()["Instrument"]:
                         if musc == x:
                             gamers.append(users.val())
@@ -134,6 +134,14 @@ def leit():
                         elif musc1 == x:
                             gamers.append(users.val())
                         elif musc2 == x:
+                            gamers.append(users.val())
+                        elif musc3 == x:
+                            gamers.append(users.val())
+                        elif musc4 == x:
+                            gamers.append(users.val())
+                        elif musc5 == x:
+                            gamers.append(users.val())
+                        elif musc6 == x:
                             gamers.append(users.val())
                 else:
                     pass

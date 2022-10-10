@@ -7,15 +7,37 @@
         {% extends 'base.html' %}
         {% block content %}
         <section class="searchbod">
-            <form class="searchbar" method="Post">
-                <input type="text" name="Search" placeholder="Search" id="user"><input type="submit" value="Submit">
-            </form>
+            <section class="filtersect">
+                <form class="searchbar" method="Post">
+                    <input type="text" name="Search" placeholder="Search" id="user"><input type="submit" value="Submit">
+                </form>
+                <form class="filter" method="post">
+                    <h5>Hljóðfæri</h5>
+                    <input type="checkbox" id="vehicle1" name="instruments" value="trommur">
+                    <label for="vehicle1"> trommur</label><br>
+                    <input type="checkbox" id="vehicle2" name="instruments1" value="piano">
+                    <label for="vehicle2"> Piano</label><br>
+                    <input type="checkbox" id="vehicle3" name="instruments2" value="flauta">
+                    <label for="vehicle3"> flauta</label><br>
+                    <input type="checkbox" id="vehicle4" name="instruments3" value="bassi">
+                    <label for="vehicle3"> bassi</label><br>
+                    <input type="checkbox" id="vehicle5" name="instruments4" value="gítar">
+                    <label for="vehicle3"> gítar</label><br>
+                    <input type="checkbox" id="vehicle6" name="instruments5" value="fiðla">
+                    <label for="vehicle3"> fiðla</label><br>
+                    <input type="checkbox" id="vehicle7" name="instruments6" value="söngur">
+                    <label for="vehicle3"> söngur</label><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </section>
             <div class="grid-div">
                 <tbody>
                     {% for i in range(0, len) %}
                     <div class="profiles">
                         <img class="mynd" src="{{ url_for('static',filename='mynd1.jpg') }}" alt="{{ item }}">
-                        <span class="name">{{gamers[i]["name"]}}</span>
+                        <div class="div-name">
+                            <span class="name">{{gamers[i]["name"]}}</span>
+                        </div><br>
                         <span class="instrument">{{gamers[i]["Instrument"]}}</span>
                         <div class="preview-audio">
                             <span class="preview">Preview:
@@ -28,18 +50,6 @@
                     {%endfor%}
                 </tbody>
             </div>
-            <section class="filtersect">
-                <form class="filter" method="post">
-                    <h5>Hljóðfæri</h5>
-                    <input type="checkbox" id="vehicle1" name="instruments" value="trommur">
-                    <label for="vehicle1"> trommur</label><br>
-                    <input type="checkbox" id="vehicle2" name="instruments1" value="piano">
-                    <label for="vehicle2"> Piano</label><br>
-                    <input type="checkbox" id="vehicle3" name="instruments2" value="flauta">
-                    <label for="vehicle3"> flauta</label><br><br>
-                    <input type="submit" value="Submit">
-                </form>
-            </section>
         </section>
         {% endblock %}
     </body>

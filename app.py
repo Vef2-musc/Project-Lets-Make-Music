@@ -76,12 +76,14 @@ def forsida():
             #print(user['localId'])
             goomba = session["user"]
             #pull
+            insesh = session['user']
             users = db.child("User").get()
             gamers = []
             for users in users.each():
-
-                #print(users.val())
-                gamers.append(users.val())
+                if users.val()["email"] != insesh:
+                    gamers.append(users.val())
+                else:
+                    pass
                 
                 
             return render_template("acthomepage.html",username = session['user'],  len = len(gamers), gamers = gamers)
@@ -106,24 +108,28 @@ def leit():
     if 'user' in session:
         if request.method == 'POST':
             recname = str(request.form.get("Search"))
-            Inst = request.form.get("instruments")
-            Inst1 = request.form.get("instruments1")
-            Inst2 = request.form.get("instruments2")
-            print(Inst)
-            print(Inst1)
-            print(Inst2)
+            musc = str(request.form.get("instruments"))
+            musc1 = str(request.form.get("instruments1"))
+            musc2 = str(request.form.get("instruments2"))
             print(recname)
+            print(musc)
         users = db.child("User").get()
         instrumm = db.child("User").child("Instrument").get()
         gamers = []
         for users in users.each():
             #print(users.val())
-            if recname == "":
+            try:
+                if recname == "":
+                    gamers.append(users.val())
+                elif users.val()["name"] == recname:
+                    gamers.append(users.val())
+                elif musc != "None":
+                    if users.val()["Instrument"].index(musc) != 0:
+                        gamers.append(users.val())
+                else:
+                    pass
+            except:
                 gamers.append(users.val())
-            elif users.val()["name"] == recname:
-                gamers.append(users.val())
-            else:
-                pass
         return render_template('search.html', username=session['user'],len = len(gamers), gamers = gamers)
             
     return render_template("search.html")

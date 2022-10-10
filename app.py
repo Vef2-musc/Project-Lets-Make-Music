@@ -94,12 +94,14 @@ def forsida():
 @app.route('/home')
 def home():
     if 'user' in session:
+        insesh = session['user']
         users = db.child("User").get()
         gamers = []
         for users in users.each():
-
-            #print(users.val())
-            gamers.append(users.val())
+            if users.val()["email"] != insesh:
+                gamers.append(users.val())
+            else:
+                pass
         return render_template('acthomepage.html', username=session['user'], len = len(gamers), gamers = gamers)
     return redirect(url_for('forsida'))
 
@@ -116,7 +118,6 @@ def leit():
             print(musc1)
             print(musc2)
         users = db.child("User").get()
-        instrumm = db.child("User").child("Instrument").get()
         gamers = []
         for users in users.each():
             #print(users.val())

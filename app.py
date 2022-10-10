@@ -143,6 +143,8 @@ def leit():
                             gamers.append(users.val())
                         elif musc6 == x:
                             gamers.append(users.val())
+                elif musc == "None" or musc1 == "None" or musc2 == "None" or musc3 == "None" or musc4 == "None" or musc5 == "None" or musc6 == "None":
+                    gamers.append(users.val())
                 else:
                     pass
             except:
@@ -162,11 +164,16 @@ def signup():
         print(pwd)
         Inst1 = request.form.get("instruments1")
         Inst2 = request.form.get("instruments2")
+        Inst3 = request.form.get("instruments3")
+        Inst4 = request.form.get("instruments4")
+        Inst5 = request.form.get("instruments5")
+        Inst6 = request.form.get("instruments6")
         #InstLST =[Inst,Inst1,Inst2]
         print(Inst)
         print(Inst1)
         print(Inst2)
-        data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst,Inst1,Inst2]}
+        print(Inst6)
+        data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst,Inst1,Inst2,Inst3,Inst4,Inst5,Inst6]}
         try:
             user = auth.create_user_with_email_and_password(email,pwd)
             print(data)

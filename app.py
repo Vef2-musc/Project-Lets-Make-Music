@@ -113,6 +113,8 @@ def leit():
             musc2 = str(request.form.get("instruments2"))
             print(recname)
             print(musc)
+            print(musc1)
+            print(musc2)
         users = db.child("User").get()
         instrumm = db.child("User").child("Instrument").get()
         gamers = []
@@ -123,9 +125,6 @@ def leit():
                     gamers.append(users.val())
                 elif users.val()["name"] == recname:
                     gamers.append(users.val())
-                elif musc != "None":
-                    if users.val()["Instrument"].index(musc) != 0:
-                        gamers.append(users.val())
                 else:
                     pass
             except:

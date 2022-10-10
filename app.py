@@ -126,6 +126,15 @@ def leit():
                     gamers.append(users.val())
                 elif users.val()["name"] == recname:
                     gamers.append(users.val())
+                elif musc != "None" or musc1 != "None" or musc2 != "None":
+                    for x in users.val()["Instrument"]:
+                        if musc == x:
+                            gamers.append(users.val())
+                            break
+                        elif musc1 == x:
+                            gamers.append(users.val())
+                        elif musc2 == x:
+                            gamers.append(users.val())
                 else:
                     pass
             except:

@@ -56,12 +56,14 @@ def forsida():
         #print("virkar..")
         #return render_template('homepage.html')
         #-----
+        insesh = session['user']
         users = db.child("User").get()
         gamers = []
         for users in users.each():
-
-            #print(users.val())
-            gamers.append(users.val())
+            if users.val()["email"] != insesh:
+                gamers.append(users.val())
+            else:
+                pass
         return render_template('acthomepage.html', username=session['user'],  len = len(gamers), gamers = gamers)
     elif request.method == 'POST':
         email = request.form.get('email')

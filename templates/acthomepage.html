@@ -23,8 +23,6 @@
                     <a href="{{ url_for('messages') }}" class="menuitem">Messages</a><br>
                     <a></a><br>
                     <a href="{{ url_for('leit') }}" class="menuitem">leit</a><br>
-                    <a></a><br>
-                    <a href="{{ url_for('update') }}" class="menuitem">profile</a><br>
                 </div>
             </div>
             <div class="grid-div">
@@ -35,7 +33,9 @@
                         <div class="div-name">
                             <span class="name">{{gamers[i]["name"]}}</span>
                         </div>
-                        <span class="instrument">{{gamers[i]["Instrument"]}}</span>
+                        <div class="instrument-div">
+                            <span class="instrument">{{gamers[i]["Instrument"]}}</span>
+                        </div>
                         <div class="preview-audio">
                             <span class="preview">Preview:
                                 <audio controls class="audio-controls">

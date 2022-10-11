@@ -355,8 +355,21 @@ audio::-webkit-media-controls-play-button:hover {
 .borg {
     display: none;
 }
-.instrument{
-    color: red;
+.instrument-div{
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    margin-left: 30px;
+    max-width: 75%;
+    overflow: auto;
+}
+.instrument-div .instrument{
+    top: 30%;
+    color: #c1c4c8;
+    font-size: large;
+    font-weight: bold;
+    text-decoration: none;
+    white-space: nowrap;
 }
 .dropdown-content {
   display: block;

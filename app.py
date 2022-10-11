@@ -44,7 +44,7 @@ notend = []
 for users in users.each():
 
     #print(users.key())
-    notend.append(users.val())
+    notend.append(users.key())
 
 #print(notend[1])
 
@@ -103,6 +103,7 @@ def home():
         for users in users.each():
             if users.val()["email"] != insesh:
                 gamers.append(users.val())
+                
             else:
                 pass
         return render_template('acthomepage.html', username=session['user'], len = len(gamers), gamers = gamers)
@@ -208,10 +209,6 @@ def signup():
         Inst5 = request.form.get("instruments5")
         Inst6 = request.form.get("instruments6")
         #InstLST =[Inst,Inst1,Inst2]
-        print(Inst)
-        print(Inst1)
-        print(Inst2)
-        print(Inst6)
         randomnum = str(random.randint(0, 1000))
         image_url = pfp
         filename = "pic"+ randomnum +".jpg"
@@ -230,13 +227,18 @@ def signup():
             # Open a local file
             with open(completeName, "wb") as f:
                 shutil.copyfileobj(r.raw, f)
-                
+            print(f)
             print('Image successfully Downloaded: ',filename)
         else:
             print('Image Couldn\'t be retrieved')
 
+<<<<<<< HEAD
         print(os.listdir())
         data = {"name":username,"email":email,"Password":pwd,"Instrument":instlst,"pfp":completeName,"Friends":["-NDmJLe7PsxX79eeizQ4"]}
+=======
+        data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst,Inst1,Inst2,Inst3,Inst4,Inst5,Inst6],"pfp":completeName,"Friends":["-NDmJLe7PsxX79eeizQ4"]}
+        print(data)
+>>>>>>> 7c04a288fc052a32f647326a33fae19f2ef98d52
         try:
             user = auth.create_user_with_email_and_password(email,pwd)
             print(data)
@@ -266,7 +268,7 @@ def yfirlit():
 	return render_template("yfirlit.html", liked=liked, name=name, email=email)
 @app.route('/messages')
 def messages():
-    
+    #db.child("Friends").get(notend[1,2])
     return render_template("messages.html")
 @app.errorhandler(404)
 def error404(error):

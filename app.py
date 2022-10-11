@@ -131,6 +131,7 @@ def update():
                         db.child("User").child(users.key()).update({"name":tusername,"email":temail,"Password":tpwd,"Instrument":[tInst,tInst1,tInst2,tInst3,tInst4,tInst5,tInst6]})
                     else:   
                         pass
+                return render_template('profile.html', username=session['user'])
             except:
                 print("intial loading")
     return render_template('profile.html', username=session['user'])
@@ -159,6 +160,7 @@ def leit():
                     gamers.append(users.val())
                 elif users.val()["name"] == recname:
                     gamers.append(users.val())
+                    pass
                 elif musc != "None" or musc1 != "None" or musc2 != "None" or musc3 != "None" or musc4 != "None" or musc5 != "None" or musc6 != "None":
                     for x in users.val()["Instrument"]:
                         if musc == x:

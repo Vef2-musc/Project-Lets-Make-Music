@@ -44,7 +44,7 @@ notend = []
 for users in users.each():
 
     #print(users.key())
-    notend.append(users.val())
+    notend.append(users.key())
 
 #print(notend[1])
 
@@ -234,7 +234,7 @@ def signup():
             print('Image Couldn\'t be retrieved')
 
         print(os.listdir())
-        data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst,Inst1,Inst2,Inst3,Inst4,Inst5,Inst6],"pfp":completeName,"Friends":["-NDmJLe7PsxX79eeizQ4"]}
+        data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst,Inst1,Inst2,Inst3,Inst4,Inst5,Inst6],"pfp":completeName,"Friends":[notend[1,2]]}
         try:
             user = auth.create_user_with_email_and_password(email,pwd)
             print(data)

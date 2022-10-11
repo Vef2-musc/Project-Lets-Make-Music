@@ -14,7 +14,7 @@ from urllib import request
 from flask import Flask, render_template, request, redirect, url_for, session
 import re
 
-print("hello")
+
 app=Flask(__name__,template_folder='templates')
 
 #FIREBASE
@@ -28,19 +28,20 @@ config = {
     'measurementId': "G-3SK39RETG9",
     'databaseURL':"https://lets-make-music-default-rtdb.firebaseio.com/"#link a realtime database
 }
+
+#Fire base code base
+#--------
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
 db = firebase.database()
 app.secret_key = 'admin-69420'
 admin = firebase_admin
 #-----------
-#data={"name":"gusti","password":"abc123","music":["trommur","flautur"]}
-#db.push(data)
 users = db.child("User").get()
 notend = []
 for users in users.each():
 
-    #print(users.val())
+    #print(users.key())
     notend.append(users.val())
 
 #print(notend[1])
@@ -104,6 +105,38 @@ def home():
                 pass
         return render_template('acthomepage.html', username=session['user'], len = len(gamers), gamers = gamers)
     return redirect(url_for('forsida'))
+
+@app.route('/profile', methods=['GET','POST'])
+def update():
+    if 'user' in session:
+        if request.method == "POST":
+            tusername =  request.form.get("username")
+            temail = request.form.get("email")
+            tpwd = request.form.get("password")
+            tInst = request.form.get("instruments")
+            tInst1 = request.form.get("instruments1")
+            tInst2 = request.form.get("instruments2")
+            tInst3 = request.form.get("instruments3")
+            tInst4 = request.form.get("instruments4")
+            tInst5 = request.form.get("instruments5")
+            tInst6 = request.form.get("instruments6")
+            tdata = {"name":tusername,"email":temail,"Password":tpwd,"Instrument":[tInst,tInst1,tInst2,tInst3,tInst4,tInst5,tInst6]}
+            try:
+                uid = users.get("localId")
+                insesh = session['user']
+                users = db.child("User").get()
+                for users in users.each():
+                    if users.val()["email"] == insesh:
+                        print("Cringe ahh failure")
+                        db.child("User").child(users.key()).update({"name":tusername,"email":temail,"Password":tpwd,"Instrument":[tInst,tInst1,tInst2,tInst3,tInst4,tInst5,tInst6]})
+                    else:   
+                        pass
+            except:
+                print("intial loading")
+    return render_template('profile.html', username=session['user'])
+
+                
+
 
 @app.route("/search", methods=['GET', 'POST'])
 def leit():
@@ -173,7 +206,7 @@ def signup():
         print(Inst1)
         print(Inst2)
         print(Inst6)
-        data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst,Inst1,Inst2,Inst3,Inst4,Inst5,Inst6]}
+        data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst,Inst1,Inst2,Inst3,Inst4,Inst5,Inst6],"Friends":[]}
         try:
             user = auth.create_user_with_email_and_password(email,pwd)
             print(data)
@@ -200,6 +233,7 @@ def yfirlit():
 		email = request.form['email']
 	liked = []
 	session['liked'] = liked
+    
 	return render_template("yfirlit.html", liked=liked, name=name, email=email)
 @app.route('/messages')
 def messages():

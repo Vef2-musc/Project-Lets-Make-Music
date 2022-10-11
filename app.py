@@ -108,6 +108,39 @@ def home():
         return render_template('acthomepage.html', username=session['user'], len = len(gamers), gamers = gamers)
     return redirect(url_for('forsida'))
 
+@app.route('/profile', methods=['GET','POST'])
+def update():
+    if 'user' in session:
+        if request.method == "POST":
+            tusername =  request.form.get("username")
+            temail = request.form.get("email")
+            tpwd = request.form.get("password")
+            tInst = request.form.get("instruments")
+            tInst1 = request.form.get("instruments1")
+            tInst2 = request.form.get("instruments2")
+            tInst3 = request.form.get("instruments3")
+            tInst4 = request.form.get("instruments4")
+            tInst5 = request.form.get("instruments5")
+            tInst6 = request.form.get("instruments6")
+            tdata = {"name":tusername,"email":temail,"Password":tpwd,"Instrument":[tInst,tInst1,tInst2,tInst3,tInst4,tInst5,tInst6]}
+            try:
+                uid = users.get("localId")
+                insesh = session['user']
+                users = db.child("User").get()
+                for users in users.each():
+                    if users.val()["email"] == insesh:
+                        print("Cringe ahh failure")
+                        db.child("User").child(users.key()).update({"name":tusername,"email":temail,"Password":tpwd,"Instrument":[tInst,tInst1,tInst2,tInst3,tInst4,tInst5,tInst6]})
+                    else:   
+                        pass
+                return render_template('profile.html', username=session['user'])
+            except:
+                print("intial loading")
+    return render_template('profile.html', username=session['user'])
+
+                
+
+
 @app.route("/search", methods=['GET', 'POST'])
 def leit():
     if 'user' in session:
@@ -129,6 +162,7 @@ def leit():
                     gamers.append(users.val())
                 elif users.val()["name"] == recname:
                     gamers.append(users.val())
+                    pass
                 elif musc != "None" or musc1 != "None" or musc2 != "None" or musc3 != "None" or musc4 != "None" or musc5 != "None" or musc6 != "None":
                     for x in users.val()["Instrument"]:
                         if musc == x:
@@ -228,7 +262,10 @@ def yfirlit():
 	liked = []
 	session['liked'] = liked
 	return render_template("yfirlit.html", liked=liked, name=name, email=email)
-
+@app.route('/messages')
+def messages():
+    
+    return render_template("messages.html")
 @app.errorhandler(404)
 def error404(error):
 	return "Site Not Found", 404

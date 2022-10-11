@@ -559,7 +559,7 @@ audio::-webkit-media-controls-play-button:hover {
 .message .text{
     text-align: left;
     white-space: pre-wrap;
-    margin: 2px;
+    margin-left: 10px;
 }
 .input-bar{
     margin: 8px;

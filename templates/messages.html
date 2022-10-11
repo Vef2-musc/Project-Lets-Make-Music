@@ -10,14 +10,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body class="message-body">
-        {%for i in range(0, len)%}
         {% extends 'base.html' %}
         {% block content %}
         <div class="biggestbox">
             <div role="navigation" class="sidebar-nav">
                 <div id="chats" class="chat-chooser">
                     <div role="gridcell">
-                        <span>{{gamers["name"]}}</span>
+                        <span>
+                            <p>Jack the stripper</p>
+                        </span>
                         <span>
                             <p>Tst</p>
                         </span>
@@ -45,7 +46,6 @@
                             <span>
                                 <div class="text"> Bla Bla Bla</div>
                             </span>
-                            <div class="breaker"></div>
                             <span>
                                 <div class="text">Hello world</div>
                             </span>

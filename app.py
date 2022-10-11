@@ -103,6 +103,7 @@ def home():
         for users in users.each():
             if users.val()["email"] != insesh:
                 gamers.append(users.val())
+                
             else:
                 pass
         return render_template('acthomepage.html', username=session['user'], len = len(gamers), gamers = gamers)
@@ -224,13 +225,13 @@ def signup():
             # Open a local file
             with open(completeName, "wb") as f:
                 shutil.copyfileobj(r.raw, f)
-                
+            print(f)
             print('Image successfully Downloaded: ',filename)
         else:
             print('Image Couldn\'t be retrieved')
 
-        print(os.listdir())
-        data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst,Inst1,Inst2,Inst3,Inst4,Inst5,Inst6],"pfp":completeName,"Friends":[notend[1,2]]}
+        data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst,Inst1,Inst2,Inst3,Inst4,Inst5,Inst6],"pfp":completeName,"Friends":["-NDmJLe7PsxX79eeizQ4"]}
+        print(data)
         try:
             user = auth.create_user_with_email_and_password(email,pwd)
             print(data)

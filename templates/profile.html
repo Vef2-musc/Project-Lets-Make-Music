@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    {% extends 'base.html' %}
+    {% block content %}
+	<head>
+		<link rel="shortcut icon" href="https://raw.githubusercontent.com/Vef2-musc/Project-Lets-Make-Music/a8cbc4dca67862dc117ebce7ed90b9308fa8f181/Images/icons8-google-play-music.svg">
+		<meta charset="utf-8">
+		<title>Register</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+	</head>
+	<body>
+		<div class="register">
+			<form action="{{ url_for('update') }}" method="post" autocomplete="off">
+				<label for="email">
+					<i class="fas fa-envelope"></i>
+				</label>
+				<input type="email" name="email" placeholder="email" id="email" required>
+				<label for="username">
+					<i class="fas fa-user"></i>
+				</label>
+				<input type="text" name="username" placeholder="Username" id="user" required>
+				<label for="password">
+					<i class="fas fa-lock"></i>
+				</label>
+				<input type="password" name="password" placeholder="Password" id="pass" required>
+				<label for="instruments">
+					<i class="fas fa-guitar"></i>
+				</label>
+				<label for="pfp">Veldu profile mynd:<input type="file" id="pfp" name="pfp" accept="image/png, image/jpeg"></label><br><br>
+				<input type="checkbox" id="vehicle1" name="instruments" value="trommur">
+				<label for="vehicle1"> trommur</label><br>
+				<input type="checkbox" id="vehicle2" name="instruments1" value="piano">
+				<label for="vehicle2"> Piano</label><br>
+				<input type="checkbox" id="vehicle3" name="instruments2" value="flauta">
+				<label for="vehicle3"> flauta</label><br>
+				<input type="checkbox" id="vehicle4" name="instruments3" value="bassi">
+				<label for="vehicle4"> bassi</label><br>
+				<input type="checkbox" id="vehicle5" name="instruments4" value="gítar">
+				<label for="vehicle5"> gítar</label><br>
+				<input type="checkbox" id="vehicle6" name="instruments5" value="fiðla">
+				<label for="vehicle6"> fiðla</label><br>
+				<input type="checkbox" id="vehicle7" name="instruments6" value="rödd">
+				<label for="vehicle7"> söngur</label><br>
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+	</body>
+	{% endblock %}
+</html>

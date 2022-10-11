@@ -1,6 +1,56 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <link rel="shortcut icon" href="https://raw.githubusercontent.com/Vef2-musc/Project-Lets-Make-Music/a8cbc4dca67862dc117ebce7ed90b9308fa8f181/Images/icons8-google-play-music.svg">
+    </head>
     <body>
-        <h4>Halló Leitar Síða</h4>
+        {% extends 'base.html' %}
+        {% block content %}
+        <section class="searchbod">
+            <section class="filtersect">
+                <form class="searchbar" method="Post">
+                    <input type="text" name="Search" placeholder="Search" id="user"><input type="submit" value="Submit">
+                </form>
+                <form class="filter" method="post">
+                    <h5>Hljóðfæri</h5>
+                    <input type="checkbox" id="vehicle1" name="instruments" value="trommur">
+                    <label for="vehicle1"> trommur</label><br>
+                    <input type="checkbox" id="vehicle2" name="instruments1" value="piano">
+                    <label for="vehicle2"> Piano</label><br>
+                    <input type="checkbox" id="vehicle3" name="instruments2" value="flauta">
+                    <label for="vehicle3"> flauta</label><br>
+                    <input type="checkbox" id="vehicle4" name="instruments3" value="bassi">
+                    <label for="vehicle3"> bassi</label><br>
+                    <input type="checkbox" id="vehicle5" name="instruments4" value="gítar">
+                    <label for="vehicle3"> gítar</label><br>
+                    <input type="checkbox" id="vehicle6" name="instruments5" value="fiðla">
+                    <label for="vehicle3"> fiðla</label><br>
+                    <input type="checkbox" id="vehicle7" name="instruments6" value="söngur">
+                    <label for="vehicle3"> söngur</label><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </section>
+            <div class="grid-div">
+                <tbody>
+                    {% for i in range(0, len) %}
+                    <div class="profiles">
+                        <img class="mynd" src='{{gamers[i]["pfp"]}}' alt="{{ item }}">
+                        <div class="div-name">
+                            <span class="name">{{gamers[i]["name"]}}</span>
+                        </div><br>
+                        <span class="instrument">{{gamers[i]["Instrument"]}}</span>
+                        <div class="preview-audio">
+                            <span class="preview">Preview:
+                                <audio controls class="audio-controls">
+                                    <source src="{{ url_for('static',filename='song1.mp3') }}" type="audio/mpeg">
+                                </audio>
+                            </span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </tbody>
+            </div>
+        </section>
+        {% endblock %}
     </body>
 </html>

@@ -209,6 +209,23 @@ def signup():
         Inst5 = request.form.get("instruments5")
         Inst6 = request.form.get("instruments6")
         #InstLST =[Inst,Inst1,Inst2]
+        instlist = []
+        #if Inst != None:
+            #instlist.append(Inst)
+        
+        #elif Inst1 != None:    
+            #instlist.append(Inst1)
+        #elif Inst2 != None:    
+            #instlist.append(Inst2)
+        #elif Inst3 != None:
+            #instlist.append(Inst3)
+        #elif Inst4 != None:
+            #instlist.append(Inst4)
+        #elif Inst5 != None:
+           # instlist.append(Inst5)
+        #elif Inst2 != None:
+          #  instlist.append(Inst6)
+        print(instlist)
         randomnum = str(random.randint(0, 1000))
         image_url = pfp
         filename = "pic"+ randomnum +".jpg"
@@ -230,7 +247,7 @@ def signup():
         else:
             print('Image Couldn\'t be retrieved')
 
-        data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst,Inst1,Inst2,Inst3,Inst4,Inst5,Inst6],"pfp":completeName,"Friends":["-NDmJLe7PsxX79eeizQ4"]}
+        data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst,Inst1,Inst2,Inst3,Inst4,Inst5,Inst5],"pfp":completeName,"Friends":["-NDmJLe7PsxX79eeizQ4"]}
         print(data)
         try:
             user = auth.create_user_with_email_and_password(email,pwd)

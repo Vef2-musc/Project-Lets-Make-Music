@@ -73,7 +73,7 @@ def forsida():
             user = auth.sign_in_with_email_and_password(email,password)
             session['user'] = email
             print('virkar')
-            
+            #hello
             #print(user['localId'])
             goomba = session["user"]
             #pull

@@ -156,13 +156,13 @@ def leit():
         users = db.child("User").get()
         gamers = []
         for users in users.each():
+            users.val()
             #print(users.val())
             try:
                 if recname == "":
                     gamers.append(users.val())
                 elif users.val()["name"] == recname:
                     gamers.append(users.val())
-                    pass
                 elif musc != "None" or musc1 != "None" or musc2 != "None" or musc3 != "None" or musc4 != "None" or musc5 != "None" or musc6 != "None":
                     for x in users.val()["Instrument"]:
                         if musc == x:
@@ -218,6 +218,8 @@ def signup():
         save_path = 'static\images'
         completeName = os.path.join(save_path, filename)
         r = requests.get(image_url, stream = True)
+        instlst = []
+        #for x in range[0, 8]:
 
         # Check image 
         if r.status_code == 200:
@@ -234,7 +236,7 @@ def signup():
             print('Image Couldn\'t be retrieved')
 
         print(os.listdir())
-        data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst,Inst1,Inst2,Inst3,Inst4,Inst5,Inst6],"pfp":completeName,"Friends":["-NDmJLe7PsxX79eeizQ4"]}
+        data = {"name":username,"email":email,"Password":pwd,"Instrument":instlst,"pfp":completeName,"Friends":["-NDmJLe7PsxX79eeizQ4"]}
         try:
             user = auth.create_user_with_email_and_password(email,pwd)
             print(data)

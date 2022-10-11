@@ -13,7 +13,9 @@ from firebase_admin.auth import get_user
 from urllib import request
 from flask import Flask, render_template, request, redirect, url_for, session
 import re
-
+import requests
+import shutil
+import random
 
 app=Flask(__name__,template_folder='templates')
 
@@ -160,9 +162,11 @@ def signup():
         email = request.form.get("email")
         pwd = request.form.get("password")
         Inst = request.form.get("instruments")
+        pfp = request.form.get("pfp")
         print(username)
         print(email)
         print(pwd)
+        print(pfp)
         Inst1 = request.form.get("instruments1")
         Inst2 = request.form.get("instruments2")
         Inst3 = request.form.get("instruments3")
@@ -174,7 +178,29 @@ def signup():
         print(Inst1)
         print(Inst2)
         print(Inst6)
-        data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst,Inst1,Inst2,Inst3,Inst4,Inst5,Inst6],"Friends":["-NDmJLe7PsxX79eeizQ4"]}
+        randomnum = str(random.randint(0, 1000))
+        image_url = pfp
+        filename = "pic"+ randomnum +".jpg"
+        save_path = 'static\images'
+        completeName = os.path.join(save_path, filename)
+        r = requests.get(image_url, stream = True)
+
+        # Check image 
+        if r.status_code == 200:
+            
+            # Preventing the downloaded image’s size from being zero.
+            r.raw.decode_content = True
+            
+            # Open a local file
+            with open(completeName, "wb") as f:
+                shutil.copyfileobj(r.raw, f)
+                
+            print('Image successfully Downloaded: ',filename)
+        else:
+            print('Image Couldn\'t be retrieved')
+
+        print(os.listdir())
+        data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst,Inst1,Inst2,Inst3,Inst4,Inst5,Inst6],"pfp":completeName,"Friends":["-NDmJLe7PsxX79eeizQ4"]}
         try:
             user = auth.create_user_with_email_and_password(email,pwd)
             print(data)

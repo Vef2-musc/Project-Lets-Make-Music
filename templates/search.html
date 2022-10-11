@@ -34,7 +34,7 @@
                 <tbody>
                     {% for i in range(0, len) %}
                     <div class="profiles">
-                        <img class="mynd" src="{{ url_for('static',filename='mynd1.jpg') }}" alt="{{ item }}">
+                        <img class="mynd" src='{{gamers[i]["pfp"]}}' alt="{{ item }}">
                         <div class="div-name">
                             <span class="name">{{gamers[i]["name"]}}</span>
                         </div><br>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="https://raw.githubusercontent.com/Vef2-musc/Project-Lets-Make-Music/a8cbc4dca67862dc117ebce7ed90b9308fa8f181/Images/icons8-google-play-music.svg">
+        <meta charset="utf-8">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body class="message-body">
+        {% extends 'base.html' %}
+        {% block content %}
+        <div class="biggestbox">
+            <div role="navigation" class="sidebar-nav">
+                <div id="chats" class="chat-chooser">
+                    <div role="gridcell">
+                        <span>
+                            <p>Jack the stripper</p>
+                        </span>
+                        <span>
+                            <p>Tst</p>
+                        </span>
+                        <span>
+                            <p>Maguire</p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="bigbox">
+                <div class="topbox">
+                    <div class="innertopbox">
+                        <div class="namedisplay">
+                            <h1>
+                                <span>
+                                    Jack the Stripper
+                                </span>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="messagebox">
+                    <div class="message-display">
+                        <div role="row" class="message">
+                            <span>
+                                <div class="text"> Bla Bla Bla</div>
+                            </span>
+                            <span>
+                                <div class="text">Hello world</div>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="input-bar">
+                        <input type="text" placeholder="Aa" name="inputbar">
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+    </body>
+</html>

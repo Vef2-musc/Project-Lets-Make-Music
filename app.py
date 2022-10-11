@@ -208,10 +208,6 @@ def signup():
         Inst5 = request.form.get("instruments5")
         Inst6 = request.form.get("instruments6")
         #InstLST =[Inst,Inst1,Inst2]
-        print(Inst)
-        print(Inst1)
-        print(Inst2)
-        print(Inst6)
         randomnum = str(random.randint(0, 1000))
         image_url = pfp
         filename = "pic"+ randomnum +".jpg"
@@ -264,7 +260,7 @@ def yfirlit():
 	return render_template("yfirlit.html", liked=liked, name=name, email=email)
 @app.route('/messages')
 def messages():
-    
+    #db.child("Friends").get(notend[1,2])
     return render_template("messages.html")
 @app.errorhandler(404)
 def error404(error):

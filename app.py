@@ -44,7 +44,7 @@ notend = []
 for users in users.each():
 
     #print(users.key())
-    notend.append(users.key())
+    notend.append(users.val())
 
 #print(notend[1])
 
@@ -142,6 +142,7 @@ def update():
                 
 
 
+
 @app.route("/search", methods=['GET', 'POST'])
 def leit():
     if 'user' in session:
@@ -157,7 +158,6 @@ def leit():
         users = db.child("User").get()
         gamers = []
         for users in users.each():
-            users.val()
             #print(users.val())
             try:
                 if recname == "":
@@ -181,7 +181,7 @@ def leit():
                             gamers.append(users.val())
                         elif musc6 == x:
                             gamers.append(users.val())
-                elif musc == "None" or musc1 == "None" or musc2 == "None" or musc3 == "None" or musc4 == "None" or musc5 == "None" or musc6 == "None":
+                elif musc == "None" and musc1 == "None" and musc2 == "None" and musc3 == "None" and musc4 == "None" and musc5 == "None" and musc6 == "None":
                     gamers.append(users.val())
                 else:
                     pass

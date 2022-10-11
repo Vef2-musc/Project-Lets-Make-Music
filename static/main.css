@@ -539,16 +539,19 @@ audio::-webkit-media-controls-play-button:hover {
     display: block;
     position: relative;
     padding-left: 18px;
-    background-color: #2F2F2F;
-    border-radius: 18px;
+    
 }
 .message span{
+    display: block;
+    padding-top:5px;
     flex-basis: inherit;
     justify-content: center;
     max-height: inherit;
     min-height: inherit;
     max-width: inherit;
     min-width: inherit;
+    background-color: #2F2F2F;
+    border-radius: 18px;
 }
 .message .text{
     text-align: left;

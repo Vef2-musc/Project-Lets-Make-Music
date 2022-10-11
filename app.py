@@ -276,10 +276,20 @@ def yfirlit():
 	liked = []
 	session['liked'] = liked
 	return render_template("yfirlit.html", liked=liked, name=name, email=email)
-@app.route('/messages')
+@app.route('/messages', methods=['GET','POST'])
 def messages():
+    if('user' in session):
+        insesh = session['user']
+        users = db.child("Friends").get()
+        notend = []
+        for users in users.each():
+            if users.val()["name"] != insesh:
+                notend.append(users.val())
+            else:
+                pass
+            
     #db.child("Friends").get(notend[1,2])
-    return render_template("messages.html")
+    return render_template("messages.html", username=session['user'], len = len(notend), notend = notend)
 @app.errorhandler(404)
 def error404(error):
 	return "Site Not Found", 404

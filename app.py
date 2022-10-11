@@ -28,19 +28,20 @@ config = {
     'measurementId': "G-3SK39RETG9",
     'databaseURL':"https://lets-make-music-default-rtdb.firebaseio.com/"#link a realtime database
 }
+
+#Fire base code base
+#--------
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
 db = firebase.database()
 app.secret_key = 'admin-69420'
 admin = firebase_admin
 #-----------
-#data={"name":"gusti","password":"abc123","music":["trommur","flautur"]}
-#db.push(data)
 users = db.child("User").get()
 notend = []
 for users in users.each():
 
-    #print(users.val())
+    #print(users.key())
     notend.append(users.val())
 
 #print(notend[1])
@@ -173,7 +174,7 @@ def signup():
         print(Inst1)
         print(Inst2)
         print(Inst6)
-        data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst,Inst1,Inst2,Inst3,Inst4,Inst5,Inst6]}
+        data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst,Inst1,Inst2,Inst3,Inst4,Inst5,Inst6],"Friends":["-NDmJLe7PsxX79eeizQ4"]}
         try:
             user = auth.create_user_with_email_and_password(email,pwd)
             print(data)

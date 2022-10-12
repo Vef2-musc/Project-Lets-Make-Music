@@ -14,21 +14,15 @@
         {% block content %}
         <div class="biggestbox">
             <div role="navigation" class="sidebar-nav">
-                {%for i in range(0, len)%}
+            {%for i in range(0, len)%}
                 <div id="chats" class="chat-chooser">
                     <div role="gridcell">
                         <span>
-                            <p>{{notend[i]}}</p>
-                        </span>
-                        <span>
-                            <p>{{notend[i]}}</p>
-                        </span>
-                        <span>
-                            <p>{{notend[i]}}</p>
+                            <p>{{notend[i].name}}</p>
                         </span>
                     </div>
                 </div>
-                
+            {%endfor%}
             </div>
             <div class="bigbox">
                 <div class="topbox">
@@ -36,13 +30,12 @@
                         <div class="namedisplay">
                             <h1>
                                 <span>
-                                    {{notend[i]}}
+                                    {{ username }}
                                 </span>
                             </h1>
                         </div>
                     </div>
                 </div>
-                {%endfor%}
                 <div class="messagebox">
                     <div class="message-display">
                         <div role="row" class="message">
@@ -52,6 +45,14 @@
                             <div class="breaker"></div>
                             <span>
                                 <div class="text">Hello world</div>
+                            </span>
+                            <div class="breaker"></div>
+                            <span>
+                                <div class="text">takk</div>
+                            </span>
+                            <div class="breaker"></div>
+                            <span>
+                                <div class="text">marshallah</div>
                             </span>
                         </div>
                     </div>

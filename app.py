@@ -42,9 +42,7 @@ admin = firebase_admin
 users = db.child("User").get()
 notend = []
 for users in users.each():
-
-    #print(users.key())
-    notend.append(users.key())
+    notend.append(users.val())
 
 #print(notend[1])
 
@@ -278,16 +276,16 @@ def yfirlit():
 	return render_template("yfirlit.html", liked=liked, name=name, email=email)
 @app.route('/messages', methods=['GET','POST'])
 def messages():
-    if('user' in session):
-        insesh = session['user']
-        users = db.child("Friends").get()
-        notend = []
-        for users in users.each():
-            if users.val()["name"] != insesh:
-                notend.append(users.val())
-            else:
-                pass
-            
+    # if('user' in session):
+    #     insesh = session['user']
+    #     users = db.child("Friends").get()
+    #     notend = []
+    #     for users in users.each():
+    #         if users.val()["name"] != insesh:
+    #             notend.append(users.val())
+    #         else:
+    #             pass
+    print(session)
     #db.child("Friends").get(notend[1,2])
     return render_template("messages.html", username=session['user'], len = len(notend), notend = notend)
 @app.errorhandler(404)

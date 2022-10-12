@@ -71,8 +71,15 @@ def forsida():
         password = request.form.get('password')
         try:#ef þu nærð  að logga inn virkar try
             user = auth.sign_in_with_email_and_password(email,password)
-            session['user'] = email
-            print('virkar')
+            users = db.child("User").get()
+            userObj = {}
+            for users in users.each():
+                    if users.val()["email"] == email:
+                        userObj = users.val()
+                        
+                    else:
+                        pass
+            session['user'] = userObj
             #hello
             #print(user['localId'])
             goomba = session["user"]
@@ -245,6 +252,8 @@ def signup():
         else:
             print('Image Couldn\'t be retrieved')
 
+
+        print('keyri hér')
         data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst,Inst1,Inst2,Inst3,Inst4,Inst5,Inst5],"pfp":completeName,"Friends":["-NDmJLe7PsxX79eeizQ4"]}
         print(data)
         try:
@@ -276,18 +285,9 @@ def yfirlit():
 	return render_template("yfirlit.html", liked=liked, name=name, email=email)
 @app.route('/messages', methods=['GET','POST'])
 def messages():
-    # if('user' in session):
-    #     insesh = session['user']
-    #     users = db.child("Friends").get()
-    #     notend = []
-    #     for users in users.each():
-    #         if users.val()["name"] != insesh:
-    #             notend.append(users.val())
-    #         else:
-    #             pass
-    print(session)
+    friends = session['user']['Friends']
     #db.child("Friends").get(notend[1,2])
-    return render_template("messages.html", username=session['user'], len = len(notend), notend = notend)
+    return render_template("messages.html", username=session['user'], len = len(friends), friends = friends)
 @app.errorhandler(404)
 def error404(error):
 	return "Site Not Found", 404

@@ -207,7 +207,7 @@ body.loggedin {
     justify-items: center;
     margin: auto;
 }
-.grid-div :hover{
+.grid-div .profiles:hover{
     box-shadow: 15px 15px 20px black;
     transform: scale(1.05);
     border-radius: 2em;

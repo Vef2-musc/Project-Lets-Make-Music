@@ -282,11 +282,11 @@ def yfirlit():
 def messages():
     if('user' in session):
         insesh = session['user']
-        users = db.child("Friends").get()
+        users = db.child("Friends").get()#vandamalið er að það er ekkert i friends child
         notend = []
-        for users in users.each():
-            if users.val()["name"] != insesh:
-                notend.append(users.val())
+        for users in users.each():             
+            if users.val()["name"]:
+                notend.append(users.key())
             else:
                 pass
             

@@ -147,6 +147,7 @@ def update():
                 
 
 
+
 @app.route("/search", methods=['GET', 'POST'])
 def leit():
     if 'user' in session:
@@ -168,7 +169,6 @@ def leit():
                     gamers.append(users.val())
                 elif users.val()["name"] == recname:
                     gamers.append(users.val())
-                    pass
                 elif musc != "None" or musc1 != "None" or musc2 != "None" or musc3 != "None" or musc4 != "None" or musc5 != "None" or musc6 != "None":
                     for x in users.val()["Instrument"]:
                         if musc == x:
@@ -186,7 +186,7 @@ def leit():
                             gamers.append(users.val())
                         elif musc6 == x:
                             gamers.append(users.val())
-                elif musc == "None" or musc1 == "None" or musc2 == "None" or musc3 == "None" or musc4 == "None" or musc5 == "None" or musc6 == "None":
+                elif musc == "None" and musc1 == "None" and musc2 == "None" and musc3 == "None" and musc4 == "None" and musc5 == "None" and musc6 == "None":
                     gamers.append(users.val())
                 else:
                     pass
@@ -237,6 +237,8 @@ def signup():
         save_path = 'static\images'
         completeName = os.path.join(save_path, filename)
         r = requests.get(image_url, stream = True)
+        instlst = []
+        #for x in range[0, 8]:
 
         # Check image 
         if r.status_code == 200:

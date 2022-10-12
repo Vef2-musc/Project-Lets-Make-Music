@@ -186,12 +186,11 @@ def leit():
                             gamers.append(users.val())
                         elif musc6 == x:
                             gamers.append(users.val())
-                elif musc == "None" and musc1 == "None" and musc2 == "None" and musc3 == "None" and musc4 == "None" and musc5 == "None" and musc6 == "None":
-                    gamers.append(users.val())
                 else:
                     pass
             except:
                 gamers.append(users.val())
+
         return render_template('search.html', username=session['user'],len = len(gamers), gamers = gamers)
             
     return render_template("search.html")

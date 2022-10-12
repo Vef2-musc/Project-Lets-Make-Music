@@ -355,6 +355,9 @@ audio::-webkit-media-controls-play-button:hover {
 .borg {
     display: none;
 }
+.instrument{
+    color: #00e5ff;
+}
 .instrument-div{
     display: inline-block;
     position: relative;

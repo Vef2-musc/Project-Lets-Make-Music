@@ -65,6 +65,8 @@ def forsida():
         
         return render_template('acthomepage.html', username=session['user'],  len = len(gamers), gamers = gamers)
     elif request.method == 'POST':
+        #requests.post.get('user_id')
+        #db.child("Friends").push()
         email = request.form.get('email')
         password = request.form.get('password')
         try:#ef þu nærð  að logga inn virkar try

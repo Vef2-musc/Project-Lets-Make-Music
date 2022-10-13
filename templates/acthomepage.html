@@ -44,6 +44,9 @@
                                     <source src="{{ url_for('static',filename='song1.mp3') }}" type="audio/mpeg">
                                 </audio>
                             </span>
+                        </div><br>
+                        <div class="div-name">
+                            <a>contact: {{gamers[i]["email"]}}</a>
                         </div>
                         <label for="like" method="post" action="{{ url_for('home') }}">
                             <button class="button" name="user_id" value="{{ user_id }}" ><i class="fas fa-thumbs-up"></i></button>

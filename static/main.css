@@ -382,9 +382,6 @@ audio::-webkit-media-controls-play-button:hover {
   z-index: 1;
   height: 100%;
 }
-.menuitem{
-    margin: 20%;
-}
 
 .holder{
     display: table-column;
@@ -530,6 +527,7 @@ audio::-webkit-media-controls-play-button:hover {
 .namedisplay h1{
     display: block;
     font-size: 2em;
+    text-align: center;
     margin-block-start: 0.67em;
     margin-block-end: 0.67em;
     margin-inline-start: 0px;
@@ -590,11 +588,12 @@ audio::-webkit-media-controls-play-button:hover {
     border-radius: 18px;
     width: 100%;
 }
-@media only screen and (max-width: 720px){
+@media only screen and (max-width: 1150px){
     .grid-div{
         display: table-column;
         grid-template-columns: repeat(4,1fr);
         grid-column-gap: 50px;
+        align-items: center;
         justify-items: center;
         margin: auto;
     }

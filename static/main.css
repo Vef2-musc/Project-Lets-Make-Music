@@ -580,6 +580,14 @@ audio::-webkit-media-controls-play-button:hover {
     width: 100%;
 }
 @media only screen and (max-width: 720px){
+    .grid-div{
+        display: table-column;
+        grid-template-columns: repeat(4,1fr);
+        grid-column-gap: 50px;
+        justify-items: center;
+        margin: auto;
+    }
+    
     .dropdown {
         position: relative;
         display: inline-block;

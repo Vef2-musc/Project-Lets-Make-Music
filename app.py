@@ -153,7 +153,7 @@ def update():
 def leit():
     if 'user' in session:
         if request.method == 'POST':
-            recname = str(request.form.get("Search"))
+            recname = str(request.form.get("Search"))   #Hér er tekið inn upplýsingar til að finna ákveðna notendur með sum af þessum upplýsingum
             musc = str(request.form.get("instruments"))
             musc1 = str(request.form.get("instruments1"))
             musc2 = str(request.form.get("instruments2"))
@@ -161,6 +161,14 @@ def leit():
             musc4 = str(request.form.get("instruments4"))
             musc5 = str(request.form.get("instruments5"))
             musc6 = str(request.form.get("instruments6"))
+            strmusc = musc
+            strmusc1 = musc1
+            strmusc2 = musc2
+            strmusc3 = musc3
+            strmusc4 = musc4
+            strmusc5 = musc5
+            strmusc6 = musc6
+            
             if musc!="None":
                 musc = int(0)
             elif musc1!="None":
@@ -180,13 +188,13 @@ def leit():
         for users in users.each():
             #print(users.val()["Instrument"])
             try:
-                if recname == "":
+                if recname == "":   #Ef ekki er leitað eftir neinum ákveðnum aðila bætast allir notendur í listann
                     gamers.append(users.val())
-                elif users.val()["name"] == recname:
+                elif users.val()["name"] == recname:    #Annars einhver sem heitir það sama og leitað er eftir er fundinn bætist hann sérstaklega í listann
                     gamers.append(users.val())
-                elif musc != "None" or musc1 != "None" or musc2 != "None" or musc3 != "None" or musc4 != "None" or musc5 != "None" or musc6 != "None":
+                elif musc != "None" or musc1 != "None" or musc2 != "None" or musc3 != "None" or musc4 != "None" or musc5 != "None" or musc6 != "None":  #Ef síann er notuð er farið í gengum hljóðfærinn sem eru í dictionarinu(Þegar það er dictionary)
                     for x in users.val()["Instrument"]:
-                        if musc == int(x) or musc == x:
+                        if musc == int(x):
                             gamers.append(users.val())
                         elif musc1 == int(x):
                             gamers.append(users.val())
@@ -200,17 +208,35 @@ def leit():
                             gamers.append(users.val())
                         elif musc6 == int(x):
                             gamers.append(users.val())
+                elif musc != "None" or musc1 != "None" or musc2 != "None" or musc3 != "None" or musc4 != "None" or musc5 != "None" or musc6 != "None":  #Tilraun til að fá að sía út usera með lista um hljóðfærin
+                    for x in users.val()["Instrument"]:
+                        if strmusc == x:
+                            gamers.append(users.val())
+                        elif strmusc1 == x:
+                            gamers.append(users.val())
+                        elif strmusc2 == x:
+                            gamers.append(users.val())
+                        elif strmusc3 == x:
+                            gamers.append(users.val())
+                        elif strmusc4 == x:
+                            gamers.append(users.val())
+                        elif strmusc5 == x:
+                            gamers.append(users.val())
+                        elif strmusc6 == x:
+                            gamers.append(users.val())
+                        elif str(x) == None:
+                            pass
                 else:
                     pass
             except:
                 gamers.append(users.val())
 
-        return render_template('search.html', username=session['user'],len = len(gamers), gamers = gamers)
+        return render_template('search.html', username=session['user'],len = len(gamers), gamers = gamers)  #Skilar search síðunni með útkomu leitarinnar.
             
     return render_template("search.html")
 @app.route("/signup", methods=['POST','GET'])
 def signup():
-    if request.method == 'POST':
+    if request.method == 'POST':    #Hér að neðan er tekið inn allar upplýsingar sem databaseið notar
         username = request.form.get("username")
         email = request.form.get("email")
         pwd = request.form.get("password")
@@ -269,15 +295,15 @@ def signup():
         #Dataið heldur um notendanafn, email, pasword, mynd, "vini" og hljóðfæri(sem eiga að vera í dictionary en stundum virkar það ekki fyrir einhverja ástæðu)
         data = {"name":username,"email":email,"Password":pwd,"Instrument":{0 : Inst, 1 : Inst1, 2 : Inst2, 3 : Inst3, 4 : Inst4, 5 : Inst5, 6 : Inst6},"pfp":completeName,"Friends":["-NDmJLe7PsxX79eeizQ4"]}
         print(data)
-        #try:
-        user = auth.create_user_with_email_and_password(email,pwd)  #Býr til user
-        print(data)
-        db.child("User").push(data) #Bætir upplýsingum hanns í databaseið
-        print("signup complete")
-        return render_template("correct.html")
-        '''except:
+        try:
+            user = auth.create_user_with_email_and_password(email,pwd)  #Býr til user
+            print(data)
+            db.child("User").push(data) #Bætir upplýsingum hanns í databaseið
+            print("signup complete")
+            return render_template("index.html")    #Ef það hepnast að setja upp aðgang er skilað login síðunni
+        except:
             print('signup failed :(')
-            return render_template("incorrect.html")'''
+            return render_template("signup.html")   #Ef ekki var hægt að búa til aðgang er skilað signup síðunni
     return render_template("signup.html")
 @app.route("/back")
 def back():

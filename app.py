@@ -54,9 +54,6 @@ def index():
 @app.route("/index", methods=['GET','POST'])
 def forsida():
     if('user' in session):
-        #print("virkar..")
-        #return render_template('homepage.html')
-        #-----
         insesh = session['user']
         users = db.child("User").get()
         gamers = []
@@ -65,6 +62,7 @@ def forsida():
                 gamers.append(users.val())
             else:
                 pass
+        
         return render_template('acthomepage.html', username=session['user'],  len = len(gamers), gamers = gamers)
     elif request.method == 'POST':
         email = request.form.get('email')
@@ -95,8 +93,7 @@ def forsida():
                 
                 
             return render_template("acthomepage.html",username = session['user'],  len = len(gamers), gamers = gamers)
-        except:#ef þu nærð ekki að logga inn ferð þu aftur inna login siðuna
-            #messagebox("password vitlaust")
+        except:
             print('ekki virkar!!!')
             return render_template("index.html")
 @app.route('/home')
@@ -267,7 +264,7 @@ def signup():
         else:
             print('Image Couldn\'t be retrieved')
 
-        data = {"name":username,"email":email,"Password":pwd,"Instrument":{0:Inst, 1:Inst1, 2:Inst2, 3:Inst3, 4:Inst4, 5:Inst5, 6:Inst6},"pfp":completeName,"Friends":["-NDmJLe7PsxX79eeizQ4"]}
+        data = {"name":username,"email":email,"Password":pwd,"Instrument":{0:Inst, 1:Inst1, 2:Inst2, 3:Inst3, 4:Inst4, 5:Inst5, 6:Inst6},"pfp":completeName,"Friends":["-NE6H0AcA_yT4MquMiv4"]}
         print(data)
         #try:
         user = auth.create_user_with_email_and_password(email,pwd)
@@ -290,12 +287,15 @@ def signout():
 
 @app.route('/yfirlit', methods=['GET','POST'])
 def yfirlit():
-	if request.method == 'POST':
-		name = request.form['name']
-		email = request.form['email']
-	liked = []
-	session['liked'] = liked
-	return render_template("yfirlit.html", liked=liked, name=name, email=email)
+    if request.method == 'POST':
+		#like---
+        #fr = request.POST.get('user_id')   
+        #fr = requests.POST.get("user_id")
+        fr = requests.post.get('user_id')
+        print(fr)
+    liked = []
+    session['liked'] = liked
+    return render_template("yfirlit.html", liked=liked, name=name, email=email)
 @app.route('/messages', methods=['GET','POST'])
 def messages():
     friends = session['user']['Friends']

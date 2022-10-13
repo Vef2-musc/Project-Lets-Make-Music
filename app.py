@@ -264,7 +264,15 @@ def signup():
         else:
             print('Image Couldn\'t be retrieved')
 
-        data = {"name":username,"email":email,"Password":pwd,"Instrument":{0:Inst, 1:Inst1, 2:Inst2, 3:Inst3, 4:Inst4, 5:Inst5, 6:Inst6},"pfp":completeName,"Friends":["-NE6H0AcA_yT4MquMiv4"]}
+        ayobruh = {
+            0:Inst,
+            1:Inst1, 
+            2:Inst2, 
+            3:Inst3, 
+            4:Inst4, 
+            5:Inst5, 
+            6:Inst6}
+        data = {"name":username,"email":email,"Password":pwd,"Instrument":ayobruh,"pfp":completeName,"Friends":["-NDmJLe7PsxX79eeizQ4"]}
         print(data)
         #try:
         user = auth.create_user_with_email_and_password(email,pwd)

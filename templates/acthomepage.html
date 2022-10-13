@@ -45,8 +45,8 @@
                                 </audio>
                             </span>
                         </div>
-                        <label for="like">
-                            <button class="button"><i class="fas fa-thumbs-up"></i></button>
+                        <label for="like" method="post" action="{{ url_for('yfirlit') }}">
+                            <button class="button" name="user_id" value="{{ user_id }}" onclick="app.py"><i class="fas fa-thumbs-up"></i></button>
                         </label>
                     </div>
                     {%endfor%}

@@ -54,9 +54,6 @@ def index():
 @app.route("/index", methods=['GET','POST'])
 def forsida():
     if('user' in session):
-        #print("virkar..")
-        #return render_template('homepage.html')
-        #-----
         insesh = session['user']
         users = db.child("User").get()
         gamers = []
@@ -65,6 +62,7 @@ def forsida():
                 gamers.append(users.val())
             else:
                 pass
+        
         return render_template('acthomepage.html', username=session['user'],  len = len(gamers), gamers = gamers)
     elif request.method == 'POST':
         email = request.form.get('email')
@@ -95,8 +93,7 @@ def forsida():
                 
                 
             return render_template("acthomepage.html",username = session['user'],  len = len(gamers), gamers = gamers)
-        except:#ef þu nærð ekki að logga inn ferð þu aftur inna login siðuna
-            #messagebox("password vitlaust")
+        except:
             print('ekki virkar!!!')
             return render_template("index.html")
 @app.route('/home')
@@ -298,12 +295,15 @@ def signout():
 
 @app.route('/yfirlit', methods=['GET','POST'])
 def yfirlit():
-	if request.method == 'POST':
-		name = request.form['name']
-		email = request.form['email']
-	liked = []
-	session['liked'] = liked
-	return render_template("yfirlit.html", liked=liked, name=name, email=email)
+    if request.method == 'POST':
+		#like---
+        #fr = request.POST.get('user_id')   
+        #fr = requests.POST.get("user_id")
+        fr = requests.post.get('user_id')
+        print(fr)
+    liked = []
+    session['liked'] = liked
+    return render_template("yfirlit.html", liked=liked, name=name, email=email)
 @app.route('/messages', methods=['GET','POST'])
 def messages():
     friends = session['user']['Friends']

@@ -121,14 +121,14 @@ def update():
             tusername =  request.form.get("username")
             temail = request.form.get("email")
             tpwd = request.form.get("password")
-            tInst = request.form.get("instruments")
-            tInst1 = request.form.get("instruments1")
-            tInst2 = request.form.get("instruments2")
-            tInst3 = request.form.get("instruments3")
-            tInst4 = request.form.get("instruments4")
-            tInst5 = request.form.get("instruments5")
-            tInst6 = request.form.get("instruments6")
-            tdata = {"name":tusername,"email":temail,"Password":tpwd,"Instrument":[tInst,tInst1,tInst2,tInst3,tInst4,tInst5,tInst6]}
+            tInst = str(request.form.get("instruments"))
+            tInst1 = str(request.form.get("instruments1"))
+            tInst2 = str(request.form.get("instruments2"))
+            tInst3 = str(request.form.get("instruments3"))
+            tInst4 = str(request.form.get("instruments4"))
+            tInst5 = str(request.form.get("instruments5"))
+            tInst6 = str(request.form.get("instruments6"))
+            tdata = {"name":tusername,"email":temail,"Password":tpwd,"Instrument":{0:tInst, 1:tInst1, 2:tInst2, 3:tInst3, 4:tInst4, 5:tInst5, 6:tInst6}}
             try:
                 uid = users.get("localId")
                 insesh = session['user']
@@ -136,7 +136,7 @@ def update():
                 for users in users.each():
                     if users.val()["email"] == insesh:
                         print("Cringe ahh failure")
-                        db.child("User").child(users.key()).update({"name":tusername,"email":temail,"Password":tpwd,"Instrument":[tInst,tInst1,tInst2,tInst3,tInst4,tInst5,tInst6]})
+                        users.val().update({"name":tusername,"email":temail,"Password":tpwd,"Instrument":{0:tInst, 1:tInst1, 2:tInst2, 3:tInst3, 4:tInst4, 5:tInst5, 6:tInst6}})
                     else:   
                         pass
                 return render_template('profile.html', username=session['user'])

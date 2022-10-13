@@ -121,14 +121,14 @@ def update():
             tusername =  request.form.get("username")
             temail = request.form.get("email")
             tpwd = request.form.get("password")
-            tInst = request.form.get("instruments")
-            tInst1 = request.form.get("instruments1")
-            tInst2 = request.form.get("instruments2")
-            tInst3 = request.form.get("instruments3")
-            tInst4 = request.form.get("instruments4")
-            tInst5 = request.form.get("instruments5")
-            tInst6 = request.form.get("instruments6")
-            tdata = {"name":tusername,"email":temail,"Password":tpwd,"Instrument":[tInst,tInst1,tInst2,tInst3,tInst4,tInst5,tInst6]}
+            tInst = str(request.form.get("instruments"))
+            tInst1 = str(request.form.get("instruments1"))
+            tInst2 = str(request.form.get("instruments2"))
+            tInst3 = str(request.form.get("instruments3"))
+            tInst4 = str(request.form.get("instruments4"))
+            tInst5 = str(request.form.get("instruments5"))
+            tInst6 = str(request.form.get("instruments6"))
+            tdata = {"name":tusername,"email":temail,"Password":tpwd,"Instrument":{0:tInst, 1:tInst1, 2:tInst2, 3:tInst3, 4:tInst4, 5:tInst5, 6:tInst6}}
             try:
                 uid = users.get("localId")
                 insesh = session['user']
@@ -136,7 +136,7 @@ def update():
                 for users in users.each():
                     if users.val()["email"] == insesh:
                         print("Cringe ahh failure")
-                        db.child("User").child(users.key()).update({"name":tusername,"email":temail,"Password":tpwd,"Instrument":[tInst,tInst1,tInst2,tInst3,tInst4,tInst5,tInst6]})
+                        users.val().update({"name":tusername,"email":temail,"Password":tpwd,"Instrument":{0:tInst, 1:tInst1, 2:tInst2, 3:tInst3, 4:tInst4, 5:tInst5, 6:tInst6}})
                     else:   
                         pass
                 return render_template('profile.html', username=session['user'])
@@ -160,10 +160,24 @@ def leit():
             musc4 = str(request.form.get("instruments4"))
             musc5 = str(request.form.get("instruments5"))
             musc6 = str(request.form.get("instruments6"))
+            if musc!="None":
+                musc = int(0)
+            elif musc1!="None":
+                musc1 = int(1)
+            elif musc2!="None":
+                musc2 = int(2)
+            elif musc3!="None":
+                musc3 = int(3)
+            elif musc4!="None":
+                musc4 = int(4)
+            elif musc5!="None":
+                musc5 = int(5)
+            elif musc6!="None":
+                musc6 = int(6)
         users = db.child("User").get()
         gamers = []
         for users in users.each():
-            #print(users.val())
+            #print(users.val()["Instrument"])
             try:
                 if recname == "":
                     gamers.append(users.val())
@@ -171,20 +185,20 @@ def leit():
                     gamers.append(users.val())
                 elif musc != "None" or musc1 != "None" or musc2 != "None" or musc3 != "None" or musc4 != "None" or musc5 != "None" or musc6 != "None":
                     for x in users.val()["Instrument"]:
-                        if musc == x:
+                        print(x)
+                        if musc == int(x):
                             gamers.append(users.val())
-                            break
-                        elif musc1 == x:
+                        elif musc1 == int(x):
                             gamers.append(users.val())
-                        elif musc2 == x:
+                        elif musc2 == int(x):
                             gamers.append(users.val())
-                        elif musc3 == x:
+                        elif musc3 == int(x):
                             gamers.append(users.val())
-                        elif musc4 == x:
+                        elif musc4 == int(x):
                             gamers.append(users.val())
-                        elif musc5 == x:
+                        elif musc5 == int(x):
                             gamers.append(users.val())
-                        elif musc6 == x:
+                        elif musc6 == int(x):
                             gamers.append(users.val())
                 else:
                     pass
@@ -253,19 +267,17 @@ def signup():
         else:
             print('Image Couldn\'t be retrieved')
 
-
-        print('keyri hér')
-        data = {"name":username,"email":email,"Password":pwd,"Instrument":[Inst,Inst1,Inst2,Inst3,Inst4,Inst5,Inst5],"pfp":completeName,"Friends":["-NDmJLe7PsxX79eeizQ4"]}
+        data = {"name":username,"email":email,"Password":pwd,"Instrument":{0:Inst, 1:Inst1, 2:Inst2, 3:Inst3, 4:Inst4, 5:Inst5, 6:Inst6},"pfp":completeName,"Friends":["-NDmJLe7PsxX79eeizQ4"]}
         print(data)
-        try:
-            user = auth.create_user_with_email_and_password(email,pwd)
-            print(data)
-            db.child("User").push(data)
-            print("signup complete")
-            return render_template("correct.html")
-        except:
+        #try:
+        user = auth.create_user_with_email_and_password(email,pwd)
+        print(data)
+        db.child("User").push(data)
+        print("signup complete")
+        return render_template("correct.html")
+        '''except:
             print('signup failed :(')
-            return render_template("incorrect.html")
+            return render_template("incorrect.html")'''
     return render_template("signup.html")
 @app.route("/back")
 def back():

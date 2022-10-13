@@ -595,6 +595,7 @@ audio::-webkit-media-controls-play-button:hover {
         display: table-column;
         grid-template-columns: repeat(4,1fr);
         grid-column-gap: 50px;
+        justify-self: center;
         justify-items: center;
         margin: auto;
     }

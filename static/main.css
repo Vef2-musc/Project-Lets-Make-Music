@@ -277,18 +277,7 @@ body.loggedin {
     overflow: auto;
     text-align: center;
 }
-.div-name :hover{
-    animation: autoscroll 2s ease infinite;
-}
-@keyframes autoscroll{
-    0% {
-      margin-right: 0%;
-      
-    }
-    100%{
-      margin-right: 100%;
-    }
-  }
+
 .div-name .name{
     top: 30%;
     text-align: center;

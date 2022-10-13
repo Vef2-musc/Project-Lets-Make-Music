@@ -382,9 +382,6 @@ audio::-webkit-media-controls-play-button:hover {
   z-index: 1;
   height: 100%;
 }
-.menuitem{
-    margin: 20%;
-}
 
 .holder{
     display: table-column;

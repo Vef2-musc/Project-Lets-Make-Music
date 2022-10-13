@@ -382,7 +382,6 @@ audio::-webkit-media-controls-play-button:hover {
   z-index: 1;
   height: 100%;
 }
-
 .menuitem{
     margin: 20%;
 }
@@ -394,7 +393,6 @@ audio::-webkit-media-controls-play-button:hover {
 .mapouter {
     margin: 5%;
 }
-
 .searchbod{
     display: grid;
     grid-template-areas: 

@@ -11,7 +11,7 @@
 #### [Síðan]()
 #### [Verkefnalýsing](https://github.com/Vef2-musc/Lysing-Verkefnis)
 #### [Vinnuflæði](https://youtu.be/qlpwqIV6Uvg)
-#### [Myndband af síðunni](https://youtu.be/lIksAMM6nEA)
+#### [Myndband af síðunni]()
 
 #### Myndir af síðunni
 

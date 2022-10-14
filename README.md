@@ -13,7 +13,7 @@
 #### [Vinnuflæði](https://youtu.be/qlpwqIV6Uvg)
 #### [Myndband af síðunni](https://youtu.be/lIksAMM6nEA)
 
-####
+#### Myndir af síðunni
 
 ![allt img](https://github.com/Vef2-musc/Project-Lets-Make-Music/blob/main/Myndir/Screenshot%20(1).png?raw=true)
 ![sýu img](https://github.com/Vef2-musc/Project-Lets-Make-Music/blob/main/Myndir/Screenshot%20(2).png?raw=true)

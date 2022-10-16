@@ -8,7 +8,7 @@
 - Ágúst Birgir Karlsson
 - Fannar Örn Ragnarsson
 - Guðjón Atli Vignisson
-#### [Síðan]()
+#### [Síðan](http://hugur.net/)
 #### [Verkefnalýsing](https://github.com/Vef2-musc/Lysing-Verkefnis)
 #### [Vinnuflæði](https://youtu.be/qlpwqIV6Uvg)
 #### [Myndband af síðunni](https://youtu.be/ybPwNa3it_Q)
